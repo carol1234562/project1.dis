@@ -304,22 +304,21 @@ input {
   display: flex;
   justify-content: space-between; 
   align-items: center;
-  padding: 20px;
+  padding: 4px;
 }
 
 
 .discotecas {
   max-width: 1000px; 
   width: 100%; 
-  margin: 40px auto;
+  margin: 0px auto;
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
 .discotecas .logo img {
-  height: 200px;
-  width: 1000;
-  object-fit: contain;
+  height: 300px;
+  width: auto;
 }
 
 .header .menu {
