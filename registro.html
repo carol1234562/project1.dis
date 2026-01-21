@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="registro.css">
+</head>
+
+<body class = "registro">
+
+  <!-- Volver al login -->
+  <div class="volver" onclick="window.location.href='login.html'">«</div>
+
+  <div class="logo">
+    <img src="logo NightFestSinFondo.png" alt="NightFest">
+  </div>
+
+  <form action="login.html" method="post">
+
+    <div class="input-box">
+      <label>Nombre de usuario</label>
+      <input type="text" required>
+    </div>
+
+    <div class="input-box">
+      <label>Correo electrónico</label>
+      <input type="email" required>
+    </div>
+
+    <div class="input-box">
+      <label>Contraseña</label>
+      <input type="password" required>
+    </div>
+
+    <div class="input-box">
+      <label>Confirmar contraseña</label>
+      <input type="password" required>
+    </div>
+
+    <input type="submit" value="Registrarse">
+  </form>
+
+</body>
+</html>

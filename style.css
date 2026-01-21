@@ -211,4 +211,261 @@ input {
     border-radius: 6px;
 }
 
+.registro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #050B31; /* del CSS principal */
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
 
+/* Flecha volver */
+.registro .volver {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 100px;
+  padding: 20px;
+  font-weight: 750;
+  cursor: pointer;
+  color: white;
+}
+
+/* Logo */
+.registro .logo img {
+  width: 400px;
+  margin-bottom: 40px;
+  object-fit: contain;
+}
+
+/* Card del formulario */
+.registro form {
+  background-color: #19819B33; /* ligera transparencia para simular card */
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Inputs */
+.registro .input-box {
+  width: 100%;
+}
+
+.registro .input-box input {
+  width: 400px; /* igual que en tu CSS principal */
+  padding: 12px;
+  border-radius: 20px;
+  border: none; /* mantener del CSS principal */
+  background-color: #19819B; /* del CSS principal */
+  color: white;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.registro .input-box input::placeholder {
+  color: white;
+}
+
+.registro input[type="submit"] {
+  width: 150px; 
+  padding: 12px;
+  border-radius: 20px;
+  background-color: #19819B; 
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px #00FF88; 
+  transition: 0.3s;
+}
+
+.registro input[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+/* Labels */
+.registro label {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+/* =========================
+   NUEVO BLOQUE: DISCOTECAS
+   ========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px;
+}
+
+
+.discotecas {
+  max-width: 1000px; 
+  width: 100%; 
+  margin: 40px auto;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.registro .log img {
+  height: 200px;
+  width: 600px;
+  object-fit: contain;
+}
+
+.header .menu {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header .perfil {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+  background-color: #222; 
+  text-align: center;
+}
+.discotecas h2 {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.sub {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filtro {
+  flex: 1;
+  max-width: 120px;
+  background: white;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0A1233; /* fondo oscuro de cada card */
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.fecha {
+  background: #1aa6b7;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  text-align: center;
+  padding-top: 8px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.fecha span {
+  display: block;
+  font-size: 10px;
+  color: white;
+}
+
+.fecha strong {
+  display: block;
+  font-size: 18px;
+  color: white;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+.hora {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.info h3 {
+  margin: 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
+
+.estado {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 10px;
+  background: #ffffff20; /* fondo semitransparente */
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.flecha {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.flecha:hover {
+  color: #1aa6b7;
+}
+
+.paginas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.paginas span {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background-color: #1aa6b7;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.paginas span.activo {
+  background-color: white;
+  color: #1aa6b7;
+  font-weight: 600;
+}
