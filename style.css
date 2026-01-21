@@ -238,7 +238,7 @@ input {
 .registro .logo img {
   width: 400px;
   margin-bottom: 40px;
-  object-fit: contain;
+  display: flex;
 }
 
 /* Card del formulario */
@@ -316,9 +316,9 @@ input {
   font-family: 'Montserrat', sans-serif;
 }
 
-.registro .log img {
+.discotecas .logo img {
   height: 200px;
-  width: 600px;
+  width: 1000;
   object-fit: contain;
 }
 
