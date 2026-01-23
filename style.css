@@ -123,8 +123,6 @@ input {
    ESTILOS SOLO PARA INICIO
    ========================= */
 
-/* Barra superior */
-
 .inicio .topbar{
     width: 100%;
     display: flex;
@@ -143,7 +141,6 @@ input {
     cursor: pointer;
 }
 
-/* Buscador SOLO en inicio */
 .inicio #buscador{
     width: 60%;
     gap: 12px;
@@ -154,7 +151,6 @@ input {
     color: black;
 }
 
-/* Lado derecho */
 .inicio .right{
     display: flex;
     gap: 20px;
@@ -176,7 +172,6 @@ input {
     font-size: 14px;
 }
 
-/* Sección */
 .inicio .bloque{
     padding: 20px 40px;
 }
@@ -192,7 +187,6 @@ input {
     cursor: pointer;
 }
 
-/* Cards */
 .inicio .cards{
     display: flex;
     gap: 25px;
@@ -200,7 +194,7 @@ input {
 }
 
 .inicio .card{
-    background: linear-gradient(135deg, #0b6b80, #0f8fa5);
+    background: #050B31;
     width: 350px;
     height: 400px;
     border-radius: 12px;
@@ -233,12 +227,11 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #050B31; /* del CSS principal */
+  background-color: #050B31; 
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
-/* Flecha volver */
 .registro .volver {
   position: absolute;
   top: 30px;
@@ -250,16 +243,15 @@ input {
   color: white;
 }
 
-/* Logo */
 .registro .logo img {
   width: 400px;
   margin-bottom: 40px;
   display: flex;
 }
 
-/* Card del formulario */
+
 .registro form {
-  background-color: #19819B33; /* ligera transparencia para simular card */
+  background-color: #19819B33;
   padding: 40px;
   border-radius: 20px;
   display: flex;
@@ -268,17 +260,16 @@ input {
   gap: 18px;
 }
 
-/* Inputs */
 .registro .input-box {
   width: 100%;
 }
 
 .registro .input-box input {
-  width: 400px; /* igual que en tu CSS principal */
+  width: 400px; 
   padding: 12px;
   border-radius: 20px;
-  border: none; /* mantener del CSS principal */
-  background-color: #19819B; /* del CSS principal */
+  border: none; 
+  background-color: #19819B; 
   color: white;
   font-size: 16px;
   outline: none;
@@ -307,11 +298,11 @@ input {
   transform: scale(1.05);
 }
 
-/* Labels */
 .registro label {
   margin-bottom: 6px;
   font-size: 18px;
 }
+
 /* =========================
    NUEVO BLOQUE: DISCOTECAS
    ========================= */
@@ -387,7 +378,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0A1233; /* fondo oscuro de cada card */
+  background-color: #0A1233; 
   padding: 15px 20px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -442,7 +433,7 @@ input {
   display: inline-block;
   margin-top: 4px;
   font-size: 10px;
-  background: #ffffff20; /* fondo semitransparente */
+  background: #ffffff20; 
   color: white;
   padding: 2px 6px;
   border-radius: 6px;
@@ -493,7 +484,7 @@ input {
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, #020b2d, #02061a);
+  background: #050B31;
   color: white;
 }
  
@@ -511,11 +502,10 @@ body {
 .header .logo img {
   width: 460px;
   height: 170px;
-  margin-bottom: 5px; /* antes estaba margin-bottom: 25px; */
+  margin-bottom: 5px; 
  
 }
  
-/* Flecha volver */
 .volver {
   position: absolute;
   top: 25px;
@@ -537,7 +527,6 @@ body {
   width: 550px;
 }
  
-/* Inputs */
 .input-box {
   position: relative;
   margin-bottom: 18px;
@@ -768,9 +757,7 @@ html, body {
   display: block;
   margin: 20px auto;
 }
- 
- 
- 
+
 /* Tabs */
 /* Tabs contenedor */
 .evento-tabs {

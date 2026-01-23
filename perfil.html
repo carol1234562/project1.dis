@@ -5,22 +5,16 @@
     <title>Perfil | NightFest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ==============================
-           PERFIL - ESTILO NIGHTFEST
-           ============================== */
-
         body {
             margin: 0;
-            background: linear-gradient(180deg, #050B31, #02061a);
+            background-color: #050B31;
             font-family: 'Montserrat', sans-serif;
             color: white;
         }
 
-        /* HEADER */
         .pf-header {
             display: flex;
             justify-content: space-between;
@@ -46,7 +40,6 @@
             width: 460px;
         }
 
-        /* CONTENEDOR */
         .pf-container {
             max-width: 900px;
             margin: auto;
@@ -60,7 +53,6 @@
             margin-bottom: 40px;
         }
 
-        /* CARD PERFIL */
         .pf-card {
             background: #1e2a5a;
             border-radius: 20px;
@@ -93,7 +85,6 @@
             margin-bottom: 30px;
         }
 
-        /* BOTONES */
         .pf-options {
             display: flex;
             flex-direction: column;
@@ -111,24 +102,7 @@
             transition: 0.3s;
             box-shadow: 0px 4px 4px rgba(0,255,136,0.4);
         }
-
-        .pf-options button:hover {
-            transform: scale(1.05);
-            background: #1cb5c9;
-        }
-
-        .pf-options .logout {
-            background: transparent;
-            border: 2px solid #1aa6b7;
-            color: #1aa6b7;
-        }
-
-        .pf-options .logout:hover {
-            background: #1aa6b7;
-            color: white;
-        }
-
-        /* FOOTER */
+        
         .pf-footer {
             margin-top: 70px;
             padding: 25px 40px;
@@ -156,18 +130,16 @@
 
 <body>
 
-<!-- HEADER -->
 <header class="pf-header">
     <div class="pf-menu">☰</div>
 
     <div class="pf-logo">
-        <img src="img/nightfest.png" alt="NightFest">
+        <img src="logo NightFestSinFondo.png" alt="NightFest">
     </div>
 
     <div class="pf-user">C</div>
 </header>
 
-<!-- CONTENIDO -->
 <main class="pf-container">
 
     <h2 class="pf-title">MI PERFIL</h2>
@@ -184,14 +156,12 @@
             <button>Favoritos</button>
             <button>Seguridad y privacidad</button>
             <button>Ajustes</button>
-            <button class="logout">Cerrar sesión</button>
-        </div>
+            <button class="logout" onclick="window.location.href='registro.html'">Cerrar sesión</button>       
+             </div>
 
     </div>
 
 </main>
-
-<!-- FOOTER -->
 <footer class="pf-footer">
     <div class="pf-links">
         <span>Términos</span>
