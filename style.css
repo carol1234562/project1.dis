@@ -123,6 +123,91 @@ input {
   padding-top: 35px;
 }
 
+/* =========================
+   BLOQUE: PÁGINA DE REGISTRO
+   ========================= */
+
+.registro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #050B31; 
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.registro .volver {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 100px;
+  padding: 20px;
+  font-weight: 750;
+  cursor: pointer;
+  color: white;
+}
+
+.registro .logo img {
+  width: 400px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+
+.registro form {
+  background-color: #19819B33;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.registro .input-box {
+  width: 100%;
+}
+
+.registro .input-box input {
+  width: 400px; 
+  padding: 12px;
+  border-radius: 20px;
+  border: none; 
+  background-color: #19819B; 
+  color: white;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.registro .input-box input::placeholder {
+  color: white;
+}
+
+.registro input[type="submit"] {
+  width: 150px; 
+  padding: 12px;
+  border-radius: 20px;
+  background-color: #19819B; 
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px #00FF88; 
+  transition: 0.3s;
+}
+
+.registro input[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+.registro label {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
 
 /* =========================
    ESTILOS SOLO PARA INICIO
@@ -226,93 +311,11 @@ input {
   object-fit: cover;
 }
 
-.registro {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #050B31; 
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-}
-
-.registro .volver {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  font-size: 100px;
-  padding: 20px;
-  font-weight: 750;
-  cursor: pointer;
-  color: white;
-}
-
-.registro .logo img {
-  width: 400px;
-  margin-bottom: 40px;
-  display: flex;
-}
-
-
-.registro form {
-  background-color: #19819B33;
-  padding: 40px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-}
-
-.registro .input-box {
-  width: 100%;
-}
-
-.registro .input-box input {
-  width: 400px; 
-  padding: 12px;
-  border-radius: 20px;
-  border: none; 
-  background-color: #19819B; 
-  color: white;
-  font-size: 16px;
-  outline: none;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.registro .input-box input::placeholder {
-  color: white;
-}
-
-.registro input[type="submit"] {
-  width: 150px; 
-  padding: 12px;
-  border-radius: 20px;
-  background-color: #19819B; 
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px #00FF88; 
-  transition: 0.3s;
-}
-
-.registro input[type="submit"]:hover {
-  transform: scale(1.05);
-}
-
-.registro label {
-  margin-bottom: 6px;
-  font-size: 18px;
-}
-
 /* =========================
    NUEVO BLOQUE: DISCOTECAS
    ========================= */
 
-.header {
+.discotecas.header {
   display: flex;
   justify-content: space-between; 
   align-items: center;
@@ -333,12 +336,12 @@ input {
   width: auto;
 }
 
-.header .menu {
+.discotecas.header .menu {
   font-size: 24px;
   cursor: pointer;
 }
 
-.header .perfil {
+.discotecas .header .perfil {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 15px;
@@ -353,21 +356,21 @@ input {
   font-weight: 600;
 }
 
-.sub {
+.discotecas .sub {
   text-align: center;
   font-size: 14px;
   color: #aaa;
   margin-bottom: 20px;
 }
 
-.filtros {
+.discotecas.filtros {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-bottom: 30px;
 }
 
-.filtro {
+.dic.filtro {
   flex: 1;
   max-width: 120px;
   background: white;
