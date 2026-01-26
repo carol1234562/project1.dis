@@ -2,8 +2,8 @@
 /* =========================
    ESTILOS GENERALES
    ========================= */
-   /*principal*/
-   
+   /*principal-login*/
+
 body {
     background-color: #050B31;
     color: white; 
@@ -19,7 +19,7 @@ body {
     position: absolute;
     top: 30px;    
     left: 30px;     
-    font-size: 100px;  
+    font-size: auto;  
     padding: 20px;
     color: white; 
     font-weight: 750;
