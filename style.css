@@ -1,20 +1,23 @@
-/*estilos cambio temporal */
 /* =========================
    ESTILOS GENERALES
    ========================= */
-   /*principal-login*/
 
 body {
     background-color: #050B31;
-    color: white; 
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
 }
 
+/* =========================
+   ESTILOS DE PAGE LOGIN
+   ========================= */
+
+.login .body.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
 .volver {
     position: absolute;
     top: 30px;    
@@ -22,7 +25,7 @@ body {
     font-size: auto;  
     padding: 20px;
     color: white; 
-    font-weight: 750;
+    font-weight: 750px;
     cursor: pointer;
     
 }
@@ -39,7 +42,7 @@ input {
     border-radius: 20px; 
     margin-bottom: 15px;
     width: 400px; 
-    padding: 12px; 
+    padding: 12px;
     font-size: 16px; 
     border: none;
     outline: none;
@@ -66,6 +69,7 @@ input[type="submit"]{
     cursor: pointer;
     font-size: 16px;
 }
+
 input[type="submit"]:hover {
     transform: scale(1.05);
 }
@@ -85,10 +89,6 @@ input[type="submit"]:hover {
 
 .link-registro:hover {
     text-decoration: underline; 
-}
-
-input {
-    font-size: 16px;
 }
 
 .logo{
@@ -321,8 +321,6 @@ input {
   align-items: center;
   padding: 4px;
 }
-
-
 .discotecas {
   max-width: 1000px; 
   width: 100%; 
@@ -844,7 +842,7 @@ footer {
   align-items: center;
   padding: 25px 40px;
   border-top: 1px solid rgba(255,255,255,0.15);
-  font-size: 13px;
+  font-size: 20px;
  }
 
 .footer-links span {
