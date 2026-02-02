@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Perfil | NightFest</title>
@@ -7,175 +8,57 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            background-color: #050B31;
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-        }
-
-        .pf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 50px;
-        }
-
-        .pf-menu,
-        .pf-user {
-            width: 38px;
-            height: 38px;
-            background: #1aa6b7;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .pf-logo img {
-            width: 460px;
-        }
-
-        .pf-container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px 60px;
-            text-align: center;
-        }
-
-        .pf-title {
-            font-size: 26px;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
-
-        .pf-card {
-            background: #1e2a5a;
-            border-radius: 20px;
-            padding: 40px;
-            width: 480px;
-            margin: auto;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .pf-avatar {
-            width: 90px;
-            height: 90px;
-            background: #19819B;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-        }
-
-        .pf-card h2 {
-            font-size: 20px;
-            margin-bottom: 6px;
-        }
-
-        .pf-card p {
-            font-size: 14px;
-            color: #bbb;
-            margin-bottom: 30px;
-        }
-
-        .pf-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .pf-options button {
-            background: #19819B;
-            border: none;
-            padding: 14px;
-            border-radius: 20px;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0px 4px 4px rgba(0,255,136,0.4);
-        }
-        
-        .pf-footer {
-            margin-top: 70px;
-            padding: 25px 40px;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: #aaa;
-        }
-
-        .pf-links span {
-            margin-right: 15px;
-            cursor: pointer;
-        }
-
-        .pf-social span {
-            background: rgba(255,255,255,0.1);
-            padding: 6px 8px;
-            border-radius: 6px;
-            margin-left: 8px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
 <body>
 
-<header class="pf-header">
-    <div class="pf-menu">☰</div>
+    <header class="pf-header">
+        <div class="pf-menu">☰</div>
 
-    <div class="pf-logo">
-        <img src="logo NightFestSinFondo.png" alt="NightFest">
-    </div>
+        <div class="pf-logo">
+            <img src="logo NightFestSinFondo.png" class="logo" alt="Logo NightFest">
+        </div>
 
-    <div class="pf-user">C</div>
-</header>
+        <div class="pf-user">C</div>
+    </header>
 
-<main class="pf-container">
+    <main class="pf-container">
 
-    <h2 class="pf-title">MI PERFIL</h2>
+        <h2 class="pf-title">MI PERFIL</h2>
 
-    <div class="pf-card">
+        <div class="pf-card">
 
-        <div class="pf-avatar">👤</div>
+            <div class="pf-avatar">👤</div>
 
-        <h2>Nombre de usuario</h2>
-        <p>correo@ejemplo.com</p>
+            <h2>Nombre de usuario</h2>
+            <p>correo@ejemplo.com</p>
 
-        <div class="pf-options">
-            <button>Publicaciones</button>
-            <button>Favoritos</button>
-            <button>Seguridad y privacidad</button>
-            <button>Ajustes</button>
-            <button class="logout" onclick="window.location.href='registro.html'">Cerrar sesión</button>       
-             </div>
+            <div class="pf-options">
+                <button>Publicaciones</button>
+                <button>Favoritos</button>
+                <button>Seguridad y privacidad</button>
+                <button>Ajustes</button>
+                <button class="logout" onclick="window.location.href='registro.html'">Cerrar sesión</button>
+            </div>
 
-    </div>
+        </div>
 
-</main>
-<footer class="pf-footer">
-    <div class="pf-links">
-        <span>Términos</span>
-        <span>Ayuda</span>
-        <span>Privacidad</span>
-    </div>
+    </main>
+    <footer class="pf-footer">
+        <div class="pf-links">
+            <span>Términos</span>
+            <span>Ayuda</span>
+            <span>Privacidad</span>
+        </div>
 
-    <div class="pf-social">
-        <span>🎵</span>
-        <span>✖</span>
-        <span>📷</span>
-        <span>📘</span>
-    </div>
-</footer>
+        <div class="pf-social">
+            <span>🎵</span>
+            <span>✖</span>
+            <span>📷</span>
+            <span>📘</span>
+        </div>
+    </footer>
 
 </body>
+
 </html>

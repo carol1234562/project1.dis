@@ -3,113 +3,114 @@
    ========================= */
 
 body {
-    background-color: #050B31;
-    font-family: 'Montserrat', sans-serif;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 /* =========================
    ESTILOS DE PAGE LOGIN
    ========================= */
 
-.login .body.Login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-around;
-}
-.volver {
-    position: absolute;
-    top: 30px;    
-    left: 30px;     
-    font-size: auto;  
-    padding: 20px;
-    color: white; 
-    font-weight: 750px;
-    cursor: pointer;
-    
+.login .body.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5em;
+.return {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 60px;
+  padding: 20px;
+  font-weight: 750;
+  cursor: pointer;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
 }
 
 input {
-    background-color: #19819B;
-    border-radius: 20px; 
-    margin-bottom: 15px;
-    width: 400px; 
-    padding: 12px;
-    font-size: 16px; 
-    border: none;
-    outline: none;
-    color: white;
+  background-color: #19819B;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
 }
 
 input::placeholder {
-    color: white;
+  color: white;
 }
 
-label{
-    margin: 15px 0px 15px;
-    font-size: 18px;
+label {
+  margin: 15px 0px 15px;
+  font-size: 18px;
 }
 
-input[type="submit"]{
-    width: 150px;
-    padding: 8px;
-    margin-top: 20px;
-    background-color: #19819B;
-    color: white;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px #00FF88;
-    cursor: pointer;
-    font-size: 16px;
+input[type="submit"] {
+  width: 150px;
+  padding: 8px;
+  margin-top: 20px;
+  background-color: #19819B;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px #00FF88;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 input[type="submit"]:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .texto-cuenta {
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    text-align: center;
-    margin-top: 30px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .link-registro {
-    color: white;           
-    text-decoration: none;  
-    margin-left: 5px;
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
 }
 
 .link-registro:hover {
-    text-decoration: underline; 
+  text-decoration: underline;
 }
 
-.logo{
-    width: 800px;
-    height: 300px;
-    object-fit: contain;
+.logo {
+  width: 800px;
+  height: 300px;
+  object-fit: contain;
 }
 
 .social-login {
-    display: flex; 
-    justify-content: space-evenly;
-    align-items: center; 
-    gap: 15px; 
-    width: 100%; 
-    margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 40px;
 }
 
 .social-login img {
-    height: 45px ;
-    object-fit: contain;
-    cursor: pointer;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .texto span {
@@ -133,7 +134,7 @@ input[type="submit"]:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #050B31; 
+  background-color: #050B31;
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
@@ -171,11 +172,11 @@ input[type="submit"]:hover {
 }
 
 .registro .input-box input {
-  width: 400px; 
+  width: 400px;
   padding: 12px;
   border-radius: 20px;
-  border: none; 
-  background-color: #19819B; 
+  border: none;
+  background-color: #19819B;
   color: white;
   font-size: 16px;
   outline: none;
@@ -188,15 +189,15 @@ input[type="submit"]:hover {
 }
 
 .registro input[type="submit"] {
-  width: 150px; 
+  width: 150px;
   padding: 12px;
   border-radius: 20px;
-  background-color: #19819B; 
+  background-color: #19819B;
   color: white;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0px 4px 4px #00FF88; 
+  box-shadow: 0px 4px 4px #00FF88;
   transition: 0.3s;
 }
 
@@ -213,91 +214,92 @@ input[type="submit"]:hover {
    ESTILOS SOLO PARA INICIO
    ========================= */
 
-.inicio .topbar{
-    width: 100%;
-    display: flex;
-    padding: 25px 40px;
-    align-items: center;
-    justify-content: space-between;
+.inicio .topbar {
+  width: 100%;
+  display: flex;
+  padding: 25px 40px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #buscador::placeholder {
-    color: #050B31;
+  color: #050B31;
 }
 
-.inicio .menu{
-    align-items: center;
-    font-size: 26px;
-    cursor: pointer;
+.inicio .menu {
+  align-items: center;
+  font-size: 26px;
+  cursor: pointer;
 }
 
-.inicio #buscador{
-    width: 60%;
-    gap: 12px;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    background: white;
-    color: black;
+.inicio #buscador {
+  width: 60%;
+  gap: 12px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: white;
+  color: black;
 }
 
-.inicio .right{
-    display: flex;
-    gap: 20px;
-    align-items: center;
+.inicio .right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.inicio .right .link{
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+.inicio .right .link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.inicio .right .btn{
-    background: #1cb5c9;
-    padding: 8px 20px;
-    border-radius: 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+.inicio .right .btn {
+  background: #1cb5c9;
+  padding: 8px 20px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.inicio .bloque{
-    padding: 20px 40px;
+.inicio .bloque {
+  padding: 20px 40px;
 }
 
-.inicio .bloque-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.inicio .bloque-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.inicio .flecha{
-    font-size: 30px;
-    cursor: pointer;
+.inicio .flecha {
+  font-size: 30px;
+  cursor: pointer;
 }
 
-.inicio .cards{
-    display: flex;
-    gap: 25px;
-    margin-top: 20px;
+.inicio .cards {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
 }
 
-.inicio .card{
-    background: #050B31;
-    width: 350px;
-    height: 400px;
-    border-radius: 12px;
-    padding: 15px;
-    display: flex;
-    gap: 15px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
-    transition: 0.3s;
+.inicio .card {
+  background: #050B31;
+  width: 350px;
+  height: 400px;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
 }
 
-.inicio .card:hover{
-    transform: translateY(-5px);
+.inicio .card:hover {
+  transform: translateY(-5px);
 }
+
 .img {
   width: auto;
   height: 400px;
@@ -317,13 +319,14 @@ input[type="submit"]:hover {
 
 .discotecas.header {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 4px;
 }
+
 .discotecas {
-  max-width: 1000px; 
-  width: 100%; 
+  max-width: 1000px;
+  width: 100%;
   margin: 0px auto;
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -344,9 +347,10 @@ input[type="submit"]:hover {
   font-weight: bold;
   padding: 10px 15px;
   border-radius: 50%;
-  background-color: #222; 
+  background-color: #222;
   text-align: center;
 }
+
 .discotecas h2 {
   text-align: center;
   margin: 10px 0;
@@ -384,7 +388,7 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0A1233; 
+  background-color: #0A1233;
   padding: 15px 20px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -439,7 +443,7 @@ input[type="submit"]:hover {
   display: inline-block;
   margin-top: 4px;
   font-size: 10px;
-  background: #ffffff20; 
+  background: #ffffff20;
   color: white;
   padding: 2px 6px;
   border-radius: 6px;
@@ -486,14 +490,14 @@ input[type="submit"]:hover {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
- 
+
 body {
   margin: 0;
   min-height: 100vh;
   background: #050B31;
   color: white;
 }
- 
+
 .registro-page {
   min-height: 100vh;
   display: flex;
@@ -501,17 +505,18 @@ body {
   align-items: center;
   justify-content: center;
 }
- 
+
 .registro-page .logo img {
-  width: 500px;}
- 
+  width: 500px;
+}
+
 .header .logo img {
   width: 460px;
   height: 170px;
-  margin-bottom: 5px; 
- 
+  margin-bottom: 5px;
+
 }
- 
+
 .volver {
   position: absolute;
   top: 25px;
@@ -519,32 +524,32 @@ body {
   font-size: 26px;
   cursor: pointer;
 }
- 
+
 /* Logo */
 .logo img {
   width: 500px;
   margin-bottom: 25px;
 }
- 
+
 .card {
   background: #1e2a5a;
   padding: 35px;
   border-radius: 18px;
   width: 550px;
 }
- 
+
 .input-box {
   position: relative;
   margin-bottom: 18px;
 }
- 
+
 .input-box label {
   display: block;
   margin-left: 20px;
   margin-bottom: 6px;
   font-size: 14px;
 }
- 
+
 .input-box input {
   width: 100%;
   padding: 14px;
@@ -557,7 +562,7 @@ body {
   z-index: 2;
   position: relative;
 }
- 
+
 .input-box::after {
   content: "";
   position: absolute;
@@ -565,16 +570,14 @@ body {
   left: 0;
   width: 100%;
   height: 40%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,255,150,0.9),
-    rgba(0,0,0,0)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 255, 150, 0.9),
+      rgba(0, 0, 0, 0));
   filter: blur(10px);
   border-radius: 25px;
   z-index: 1;
 }
- 
+
 input[type="submit"] {
   margin: 15px auto 0;
   display: block;
@@ -588,35 +591,35 @@ input[type="submit"] {
   cursor: pointer;
   transition: 0.3s;
 }
- 
+
 input[type="submit"]:hover {
   background: #16c1d6;
 }
- 
- 
+
+
 .discotecas {
   max-width: 1300px;
   margin: 0 auto;
   color: white;
 }
- 
+
 .discotecas h2 {
   text-align: center;
   margin: 10px 0;
 }
- 
+
 .sub {
   text-align: center;
   font-size: 13px;
   color: #aaa;
 }
- 
+
 .filtros {
   display: flex;
   gap: 30px;
   margin: 30px 0;
 }
- 
+
 .filtro {
   flex: 1;
   background: white;
@@ -627,51 +630,40 @@ input[type="submit"]:hover {
   text-align: center;
   cursor: pointer;
 }
- 
+
 .evento {
   display: flex;
   align-items: center;
-  padding:18px 25px;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 18px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
- 
-.fecha {
-  background: #1aa6b7;
-  width: 70px;
-  height: 70px;
-  border-radius: 12px;
-  text-align: center;
-  padding-top: 6px;
-  margin-right: 14px;
-}
- 
 .fecha span {
   font-size: 11px;
 }
- 
+
 .fecha strong {
   font-size: 24px;
 }
- 
+
 .info {
   flex: 1;
 }
- 
+
 .hora {
   font-size: 12px;
   color: #bbb;
 }
- 
+
 .info h3 {
   margin: 3px 0;
   font-size: 14px;
 }
- 
+
 .info p {
   font-size: 12px;
   color: #aaa;
 }
- 
+
 .estado {
   display: inline-block;
   margin-top: 4px;
@@ -681,32 +673,33 @@ input[type="submit"]:hover {
   padding: 2px 6px;
   border-radius: 6px;
 }
- 
+
 .flecha {
   font-size: 22px;
   opacity: 0.8;
 }
- 
+
 /*INFO EVENTO (DESKTOP)*/
- 
-html, body {
+
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
- 
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 60px;
 }
- 
+
 .header .logo {
   flex: 0;
   display: flex;
   justify-content: center;
 }
- 
+
 .menu,
 .perfil {
   width: 36px;
@@ -721,8 +714,8 @@ html, body {
   font-size: 16px;
   cursor: pointer;
 }
- 
- 
+
+
 
 .infoevento {
   max-width: 1300px;
@@ -730,32 +723,32 @@ html, body {
   padding: 20px 40px;
   color: white;
 }
- 
+
 .infoevento-titulo {
   text-align: center;
   font-size: 22px;
   margin-top: -40px;
   margin-bottom: 20px;
 }
- 
+
 .evento-imagen {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
   margin-top: 10px;
 }
- 
+
 .evento-imagen img {
   width: 520px;
 }
- 
+
 .evento-datos {
   text-align: center;
   font-size: 14px;
   color: #ccc;
   margin-bottom: 25px;
 }
- 
+
 .evento-contenido .imageneslm img {
   width: 380px !important;
   height: 250px;
@@ -775,7 +768,7 @@ html, body {
   border-radius: 25px;
   padding: 4px;
 }
- 
+
 /* Botones */
 .evento-tabs button {
   border: none;
@@ -788,71 +781,191 @@ html, body {
   font-size: 14px;
   transition: 0.3s;
 }
- 
+
 /* Activo */
 .evento-tabs button.activo {
-  color:rgb(86, 227, 86);
+  color: rgb(86, 227, 86);
   font-weight: 700;
 }
- 
- 
- 
+
+
+
 /* Hover */
 .evento-tabs button:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
- 
- 
+
+
 /* Contenido */
 .infoevento-contenido {
   display: flex;
   justify-content: space-between;
   gap: 40px;
 }
- 
+
 .infoevento-texto {
   width: 40%;
 }
- 
+
 .infoevento-texto h3 {
   margin-bottom: 10px;
 }
- 
+
 .evento-texto p {
   line-height: 1.6;
   color: #ddd;
 }
- 
+
 /* Mapa */
 .infoevento-mapa {
   width: 55%;
 }
- 
+
 .evento-mapa iframe {
   width: 100%;
   height: 280px;
   border-radius: 12px;
   border: none;
 }
- 
+
 /* Footer */
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px 40px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 20px;
- }
+}
 
 .footer-links span {
   margin-right: 15px;
   cursor: pointer;
 }
+
 .footer-redes span {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   padding: 6px 8px;
   border-radius: 6px;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+/* PERFIL*/
+body {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.pf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+}
+
+.pf-menu,
+.pf-user {
+  width: 38px;
+  height: 38px;
+  background: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pf-logo img {
+  width: 460px;
+}
+
+.pf-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px 60px;
+  text-align: center;
+}
+
+.pf-title {
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.pf-card {
+  background: #1e2a5a;
+  border-radius: 20px;
+  padding: 40px;
+  width: 480px;
+  margin: auto;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.pf-avatar {
+  width: 90px;
+  height: 90px;
+  background: #19819B;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.pf-card h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.pf-card p {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.pf-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pf-options button {
+  background: #19819B;
+  border: none;
+  padding: 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 4px rgba(0, 255, 136, 0.4);
+}
+
+.pf-footer {
+  margin-top: 70px;
+  padding: 25px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.pf-links span {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.pf-social span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
   cursor: pointer;
 }
