@@ -13,6 +13,7 @@ body {
    ========================= */
 
 .login .body.Login {
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +61,7 @@ label {
 }
 
 input[type="submit"] {
-  width: 10%;
+  width: 15%;
   padding: 12px;
   margin-top: 25px;
   background-color: #19819B;
@@ -96,18 +97,18 @@ input[type="submit"]:hover {
   height: 300px;
   object-fit: contain;
 }
+
 /* Footer */
 .foot {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 25px 20px 40px;
-  margin-top: auto;
+  margin-top: 30%;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 20px;
 }
 
 .terms {
+  color: white;
   margin-right: auto;
   cursor: pointer;
 }
@@ -481,18 +482,6 @@ input[type="submit"]:hover {
   font-weight: 600;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #050B31;
-  color: white;
-}
-
 .registro-page {
   min-height: 100vh;
   display: flex;
@@ -642,12 +631,6 @@ body {
 
 /*INFO EVENTO (DESKTOP)*/
 
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 .header {
   display: flex;
   align-items: center;
@@ -790,12 +773,7 @@ body {
 }
 
 /* PERFIL*/
-body {
-  margin: 0;
-  background-color: #050B31;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-}
+
 
 .pf-header {
   display: flex;
