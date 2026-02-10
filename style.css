@@ -113,19 +113,9 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-.texto span {
-  color: white;
-  font-size: 12px;
-  line-height: 1.5;
-  display: block;
-  max-width: 420px;
-  text-align: center;
-  line-height: 1.7;
-  padding-top: 35px;
-}
 
 /* =========================
-   BLOQUE: PÁGINA DE REGISTRO
+  
    ========================= */
 
 .registro {
