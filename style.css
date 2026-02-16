@@ -1,123 +1,179 @@
-/* =========================
-   ESTILOS GENERALES
-   ========================= */
-
+/* ==================================
+   ESTILOS GENERALES (Base: Móvil)
+   ================================== */
 body {
-  background-color: #050B31;
-  font-family: 'Montserrat', sans-serif;
-
+    background-color: #050B31;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal accidental */
 }
 
-/* =========================
-   ESTILOS DE PAGE LOGIN
-   ========================= */
-
-.login .body.Login {
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
-}
-
+/* 1. BOTÓN DE RETORNO (A la derecha según dibujo) */
 .return {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  font-size: 60px;
-  padding: 20px;
-  font-weight: 750;
-  cursor: pointer;
-  color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Movido a la derecha */
+    font-size: 35px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 10;
 }
 
+/* 2. FORMULARIO Y CENTRADO */
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5em;
-}
-
-input {
-  background-color: #19819B;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  width: 400px;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-}
-
-input::placeholder {
-  color: white;
-}
-
-label {
-  margin: 15px 0px 15px;
-  font-size: 18px;
-}
-
-input[type="submit"] {
-  width: 15%;
-  padding: 12px;
-  margin-top: 25px;
-  background-color: #19819B;
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0px 4px 4px #00FF88;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  transform: scale(1.05);
-}
-
-.texto-cuenta {
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.link-registro {
-  color: white;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-.link-registro:hover {
-  text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra el contenido internamente */
+    width: 90%;
+    max-width: 400px;
+    margin: auto; /* Truco para centrado vertical y horizontal perfecto */
+    padding-top: 50px;
 }
 
 .logo {
-  width: 800px;
-  height: 300px;
-  object-fit: contain;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 25px;
 }
 
-/* Footer */
+label {
+    margin: 10px 0 10px;
+    font-size: 16px;
+    align-self: center; /* Centrado como pediste */
+}
+
+input {
+    background-color: #19819B;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    box-sizing: border-box; /* Fundamental para el ancho 100% */
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #19819B;
+    box-shadow: 0px 4px 10px #00FF88;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px #00FF88;
+}
+
+.texto-cuenta {
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.link-registro {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+/* 3. FOOTER (Alineaciones indicadas) */
 .foot {
-  display: flex;
-  padding: 25px 20px 40px;
-  margin-top: 30%;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Separa texto de iconos */
+    align-items: center;
+    padding: 20px 25px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
 }
 
 .terms {
-  color: white;
-  margin-right: auto;
-  cursor: pointer;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.terms span {
+    margin-right: 10px;
 }
 
 .fot {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px  8px ;
-  border-radius: 6px;
-  cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 12px;
+}
+
+/* ==================================
+   TABLET (768px o más)
+   ================================== */
+@media (min-width: 768px) {
+    .return {
+        font-size: 45px;
+        right: 40px;
+        top: 30px;
+    }
+
+    .logo {
+        max-width: 350px;
+    }
+
+    form {
+        max-width: 450px;
+    }
+}
+
+/* ==================================
+   ESCRITORIO (1024px o más)
+   ================================== */
+@media (min-width: 1024px) {
+    .logo {
+        max-width: 550px; /* Logo más grande en PC */
+    }
+
+    form {
+        max-width: 500px;
+    }
+
+    input {
+        padding: 15px; /* Inputs un poco más grandes para PC */
+    }
+
+    input[type="submit"] {
+        width: 80%; /* No tan ancho en monitores gigantes */
+    }
+
+    .return {
+        font-size: 55px;
+        right: 60px;
+    }
+
+    .foot {
+        padding: 30px 80px; /* Más espacio lateral en PC */
+    }
 }
 
 /* =========================
@@ -587,6 +643,7 @@ input[type="submit"]:hover {
   padding: 18px 25px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 .fecha span {
   font-size: 11px;
 }
