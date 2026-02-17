@@ -288,10 +288,10 @@ body.Login .foot {
 /* La flecha « para volver atrás */
 .registro .volver {
   position: absolute;
-  top: 40px;
-  left: 10%;
-  font-size: 40px;
-  font-weight: 750;
+  top: 20px;
+  left: 50px;
+  font-size: 35px;
+  font-weight: 700;
   cursor: pointer;
   color: white;
   text-decoration: none;
@@ -381,9 +381,9 @@ body.Login .foot {
 /* Registro en tablet */
 @media (min-width: 768px) {
   .registro .volver {
-    font-size: 60px;
-    left: 12%;
-    top: 50px;
+    font-size: 45px;
+    left: 40px;
+    top: 30px;
   }
 
   .registro .logo img {
@@ -403,9 +403,9 @@ body.Login .foot {
 /* Registro en ordenador */
 @media (min-width: 1024px) {
   .registro .volver {
-    font-size: 70px;
-    left: 15%;
-    top: 60px;
+    font-size: 55px;
+    left: 60px;
+    top: 30px;
   }
 
   .registro .logo img {
@@ -699,6 +699,57 @@ body.inicio {
   justify-content: center;
   cursor: pointer;
   font-weight: bold;
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/* =========================================
+   ESTILOS GENERALES (MÓVIL POR DEFECTO)
+   ========================================= */
+.nf-body {
+    margin: 0;
+    background-color: #050B31;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER: Logo más abajo y botones pequeños */
+.nf-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 60px; /* Reducido para botones más pequeños */
+    align-items: center;
+    padding: 40px 20px 10px; /* Más padding arriba para bajar el logo, poco abajo */
+    gap: 10px;
+}
+
+.nf-menu { justify-self: start; }
+.nf-logo { 
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* Empuja el logo un poco más abajo */
+}
+.nf-user { justify-self: end; }
+
+/* Botones más pequeños */
+.nf-menu,
+.nf-user {
+    width: 32px; /* Reducido de 40px */
+    height: 32px; /* Reducido de 40px */
+    background: #1aa6b7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* El logo */
@@ -713,6 +764,17 @@ body.inicio {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20px 0 60px;
+    width: 150px; 
+    height: auto;
+}
+
+/* CONTENEDOR CENTRAL: Menos separación con el header */
+.nf-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0 20px; 
 }
 
 /* El título "DESTACADOS" */
@@ -747,6 +809,35 @@ body.inicio {
   border-radius: 20px;
   height: fit-content;
   box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 10px; /* Controla la cercanía con el logo */
+    margin-bottom: 25px;
+}
+
+/* GRID DE TARJETAS */
+.nf-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* CARDS CON PADDING INTERNO */
+.nf-col {
+    width: 100%;
+    max-width: 360px;
+    background: #1cb5c9;
+    padding: 25px;
+    border-radius: 20px;
+    height: fit-content;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
 }
 
 .nf-col img {
@@ -827,4 +918,74 @@ body.inicio {
   .nf-col {
     flex: 0 0 400px;
   }
+    font-size: 14px;
+    line-height: 1.6;
+    color: white;
+    margin-bottom: 15px;
+    text-align: justify;
 }
+
+/* FOOTER */
+.foot {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+.terms {
+    color: white;
+    font-size: 13px;
+    display: flex;
+    gap: 15px;
+}
+
+.fot {
+    display: flex;
+    gap: 10px;
+}
+
+/* =========================================
+   MEDIA QUERIES (COMPUTADORA / PC)
+   ========================================= */
+@media (min-width: 1024px) {
+    .nf-header {
+        padding: 50px 100px 10px; /* Bajamos más el header en PC */
+        grid-template-columns: 1fr auto 1fr;
+    }
+
+    .nf-logo img {
+        width: 400px; /* Logo legible */
+    }
+
+    .nf-menu,
+    .nf-user {
+        width: 38px; /* Ligeramente más grandes en PC, pero menores que antes */
+        height: 38px;
+    }
+
+    .nf-grid {
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: flex-start;
+        padding: 30px 0 80px;
+    }
+
+    .nf-col {
+        flex: 0 0 420px;
+        padding: 35px;
+    }
+
+    .foot {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px 100px;
+    }
+  }
+}  
