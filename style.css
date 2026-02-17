@@ -627,17 +627,21 @@ body.inicio {
   }
 
   .inicio .cards {
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 10px 60px 40px;
-    gap: 25px;
+    justify-content: center; 
+    gap: 40px; 
+    padding: 20px 80px 60px;
+    overflow-x: hidden; 
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .inicio .card {
-    flex: 0 0 300px;
+    flex: 0 0 320px; 
     height: fit-content;
-    min-height: 350px;
+    min-height: 380px;
   }
 
   .inicio .card .img {
