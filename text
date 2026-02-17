@@ -1,0 +1,585 @@
+
+/* PERFIL*/
+
+
+.pf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+}
+
+.pf-menu,
+.pf-user {
+  width: 38px;
+  height: 38px;
+  background: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pf-logo img {
+  width: 460px;
+}
+
+.pf-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px 60px;
+  text-align: center;
+}
+
+.pf-title {
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.pf-card {
+  background: #1e2a5a;
+  border-radius: 20px;
+  padding: 40px;
+  width: 480px;
+  margin: auto;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.pf-avatar {
+  width: 90px;
+  height: 90px;
+  background: #19819B;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.pf-card h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.pf-card p {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.pf-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pf-options button {
+  background: #19819B;
+  border: none;
+  padding: 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 4px 4px rgba(0, 255, 136, 0.4);
+}
+
+.pf-footer {
+  margin-top: 70px;
+  padding: 25px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.pf-links span {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.pf-social span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/*xd*/
+
+
+
+
+
+/*INFO EVENTO (DESKTOP)*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+}
+
+.header .logo {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu,
+.perfil {
+  width: 36px;
+  height: 36px;
+  background: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+.infoevento {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  color: white;
+}
+
+.infoevento-titulo {
+  text-align: center;
+  font-size: 22px;
+  margin-top: -40px;
+  margin-bottom: 20px;
+}
+
+.evento-imagen {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.evento-imagen img {
+  width: 520px;
+}
+
+.evento-datos {
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.evento-contenido .imageneslm img {
+  width: 380px !important;
+  height: 250px;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Tabs */
+/* Tabs contenedor */
+.evento-tabs {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 35px;
+  background: #0f7f8f;
+  border-radius: 25px;
+  padding: 4px;
+}
+
+/* Botones */
+.evento-tabs button {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  width: 600px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Activo */
+.evento-tabs button.activo {
+  color: rgb(86, 227, 86);
+  font-weight: 700;
+}
+
+
+
+/* Hover */
+.evento-tabs button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Contenido */
+.infoevento-contenido {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.infoevento-texto {
+  width: 40%;
+}
+
+.infoevento-texto h3 {
+  margin-bottom: 10px;
+}
+
+.evento-texto p {
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Mapa */
+.infoevento-mapa {
+  width: 55%;
+}
+
+.evento-mapa iframe {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  border: none;
+}
+
+
+/* =========================
+   NUEVO BLOQUE: DISCOTECAS
+   ========================= */
+
+.discotecas.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+
+.discotecas {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0px auto;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.discotecas .logo img {
+  height: 300px;
+  width: auto;
+}
+
+.discotecas.header .menu {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.discotecas .header .perfil {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50%;
+  background-color: #222;
+  text-align: center;
+}
+
+.discotecas h2 {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.discotecas .sub {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.discotecas.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dic.filtro {
+  flex: 1;
+  max-width: 120px;
+  background: white;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0A1233;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.fecha {
+  background: #1aa6b7;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  text-align: center;
+  padding-top: 8px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.fecha span {
+  display: block;
+  font-size: 10px;
+  color: white;
+}
+
+.fecha strong {
+  display: block;
+  font-size: 18px;
+  color: white;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+.hora {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.info h3 {
+  margin: 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.info p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
+
+.estado {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 10px;
+  background: #ffffff20;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.flecha {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.flecha:hover {
+  color: #1aa6b7;
+}
+
+.paginas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.paginas span {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background-color: #1aa6b7;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.paginas span.activo {
+  background-color: white;
+  color: #1aa6b7;
+  font-weight: 600;
+}
+
+.registro-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registro-page .logo img {
+  width: 500px;
+}
+
+.header .logo img {
+  width: 460px;
+  height: 170px;
+  margin-bottom: 5px;
+
+}
+
+.volver {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Logo */
+.logo img {
+  width: 500px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #1e2a5a;
+  padding: 35px;
+  border-radius: 18px;
+  width: 550px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-box label {
+  display: block;
+  margin-left: 20px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 25px;
+  border: 2px dashed rgba(255, 255, 255, 0.503);
+  background: #1e2a5a;
+  color: white;
+  outline: none;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.discotecas {
+  max-width: 1300px;
+  margin: 0 auto;
+  color: white;
+}
+
+.discotecas h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.sub {
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.filtros {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.filtro {
+  flex: 1;
+  background: white;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.evento {
+  display: flex;
+  align-items: center;
+  padding: 18px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.fecha span {
+  font-size: 11px;
+}
+
+.fecha strong {
+  font-size: 24px;
+}
+
+.info {
+  flex: 1;
+}
+
+.hora {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.info h3 {
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+.info p {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.estado {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 10px;
+  background: white;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.flecha {
+  font-size: 22px;
+  opacity: 0.8;
+}
