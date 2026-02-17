@@ -1187,7 +1187,6 @@ body.discotecas .filtro {
   cursor: pointer;
 }
 
-/* Cada fila de evento */
 body.discotecas .evento {
   display: flex;
   align-items: center;
@@ -1196,7 +1195,6 @@ body.discotecas .evento {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* El cuadrado azul con la fecha */
 body.discotecas .fecha {
   background-color: #1aa6b7;
   width: 55px;
@@ -1245,7 +1243,6 @@ body.discotecas .estado {
   border-radius: 6px;
 }
 
-/* La flecha >> de cada evento */
 body.discotecas .flecha {
   font-size: 28px;
   color: white;
@@ -1282,7 +1279,6 @@ body.discotecas .paginas span.activo {
   font-weight: 700;
 }
 
-/* El pie de página */
 body.discotecas .footer {
   display: flex;
   justify-content: space-between;
@@ -1293,14 +1289,12 @@ body.discotecas .footer {
   font-size: 13px;
 }
 
-/* Los enlaces del footer */
 body.discotecas .footer-links {
   display: flex;
   gap: 15px;
   cursor: pointer;
 }
 
-/* Los iconos de redes sociales */
 body.discotecas .footer-redes {
   display: flex;
   gap: 8px;
@@ -1312,4 +1306,38 @@ body.discotecas .footer-redes span {
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
+
+body.discotecas .header {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  padding: 20px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.discotecas .header .logo img {
+  width: 180px; 
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  body.discotecas .header {
+    padding: 25px 40px;
+  }
+
+  body.discotecas .header .logo img {
+    width: 280px; 
+  }
+}
+
+@media (min-width: 1024px) {
+  body.discotecas .header {
+    padding: 30px 60px;
+  }
+
+  body.discotecas .header .logo img {
+    width: 400px; 
+  }
+}
 }
