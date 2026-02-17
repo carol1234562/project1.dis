@@ -707,19 +707,34 @@ body.inicio {
   justify-self: end;
 }
 
-.nf-menu,
-.nf-user {
-  width: 32px;
-  height: 32px;
-  background: #1aa6b7;
+.nf-menu {
+  font-size: 24px;
+  cursor: pointer;
   color: white;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-size: 14px;
 }
+.nf-user {
+  background: #1cb5c9;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; 
+  height: auto;
+}
+
+.nf-user a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  display: block;
+}
+
 
 .nf-logo img {
   width: 140px;
@@ -828,6 +843,11 @@ body.inicio {
     padding: 40px 0 80px;
     overflow: visible;
   }
+  
+  .nf-user:hover {
+    background: #1aa6b7;
+  }
+}
 
   .nf-col {
     flex: 0 1 450px;
