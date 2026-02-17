@@ -1287,7 +1287,7 @@ body.discotecas .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px;
+  padding: 25px 580px;
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 13px;
@@ -1304,6 +1304,7 @@ body.discotecas .footer-links {
 body.discotecas .footer-redes {
   display: flex;
   gap: 8px;
+  padding-left: 900px;
 }
 
 body.discotecas .footer-redes span {
