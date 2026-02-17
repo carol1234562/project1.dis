@@ -1274,4 +1274,466 @@ body.discotecas .footer-redes span {
   border-radius: 8px;
   cursor: pointer;
 }
+/*---------------------
+info
+----------------------*/
+#infoevento-page {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#infoevento-page .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 60px;
+}
+
+#infoevento-page .header .logo {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#infoevento-page .header .logo img {
+  width: 140px;
+  height: auto;
+}
+
+#infoevento-page .menu,
+#infoevento-page .perfil {
+  display: none;
+  width: 36px;
+  height: 36px;
+  background: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#infoevento-page .infoevento {
+  width: 100%;
+  max-width: 1400px; /* Pantalla más amplia */
+  margin: 0 auto;
+  padding: 20px 40px;
+  color: white;
+  box-sizing: border-box;
+}
+
+#infoevento-page .infoevento-titulo {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 10px; /* Espacio muerto eliminado */
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+#infoevento-page .evento-imagen {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#infoevento-page .evento-imagen img {
+  width: 100%;
+  max-width: 900px; /* Imagen más grande en PC */
+  height: auto;
+  border-radius: 12px;
+}
+
+#infoevento-page .evento-datos {
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+#infoevento-page .evento-tabs {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 40px;
+  background: #0f7f8f;
+  border-radius: 25px;
+  padding: 4px;
+}
+
+#infoevento-page .evento-tabs button {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 12px 30px;
+  min-width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+#infoevento-page .evento-tabs button.activo {
+  color: rgb(86, 227, 86);
+  font-weight: 700;
+}
+
+#infoevento-page .evento-tabs button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#infoevento-page .infoevento-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+#infoevento-page .infoevento-texto {
+  width: 100%;
+}
+
+#infoevento-page .infoevento-texto h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#infoevento-page .evento-texto p, 
+#infoevento-page .infoevento-texto p {
+  line-height: 1.8;
+  color: #ddd;
+  text-align: justify;
+}
+
+#infoevento-page .infoevento-mapa {
+  width: 100%;
+}
+
+#infoevento-page .evento-mapa iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* FOOTER ORIGINAL SIN CAMBIOS */
+#infoevento-page .footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#infoevento-page .footer-links {
+  color: white;
+  font-size: 13px;
+  display: flex;
+  gap: 15px;
+}
+
+#infoevento-page .footer-redes {
+  display: flex;
+  gap: 10px;
+}
+
+#infoevento-page .footer-redes span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  #infoevento-page .header {
+    justify-content: space-between;
+  }
+
+  #infoevento-page .header .logo img {
+    width: 220px;
+  }
+
+  #infoevento-page .menu,
+  #infoevento-page .perfil {
+    display: flex;
+  }
+
+  #infoevento-page .infoevento-contenido {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #infoevento-page .infoevento-texto {
+    width: 40%;
+  }
+
+  #infoevento-page .infoevento-texto h3 {
+    text-align: left;
+  }
+
+  #infoevento-page .infoevento-mapa {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #infoevento-page .header .logo img {
+    width: 280px;
+  }
+  
+  #infoevento-page .infoevento {
+    padding: 20px 100px;
+  }
+}
+
+
+/*info artista*/
+#infoartista-page {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#infoartista-page .nf-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 15px 20px;
+  position: relative;
+}
+
+#infoartista-page .nf-logo {
+  display: flex;
+  justify-content: center;
+}
+
+#infoartista-page .nf-logo img {
+  width: 140px;
+  height: auto;
+}
+
+#infoartista-page .nf-menu,
+#infoartista-page .nf-user {
+  display: none; 
+}
+
+/* CUERPO DE LA PÁGINA */
+#infoartista-page .infoevento {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+#infoartista-page .evento-titulo {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+#infoartista-page .evento-imagen {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#infoartista-page .evento-imagen img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+}
+
+#infoartista-page .evento-datos {
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+#infoartista-page .evento-tabs {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 40px;
+  background: #0f7f8f;
+  border-radius: 25px;
+  padding: 4px;
+}
+
+#infoartista-page .evento-tabs a {
+  text-decoration: none;
+}
+
+#infoartista-page .evento-tabs button {
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 12px 30px;
+  min-width: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#infoartista-page .evento-tabs button.activo {
+  color: rgb(86, 227, 86);
+  font-weight: 700;
+}
+
+#infoartista-page .evento-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#infoartista-page .evento-texto {
+  width: 100%;
+}
+
+#infoartista-page .evento-texto h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#infoartista-page .evento-texto p {
+  line-height: 1.8;
+  color: #ddd;
+  text-align: justify;
+}
+
+#infoartista-page .imageneslm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#infoartista-page .imageneslm img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  display: block;
+}
+
+/* FOOTER ORIGINAL */
+#infoartista-page .footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  margin-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#infoartista-page .footer-links {
+  font-size: 13px;
+  display: flex;
+  gap: 15px;
+}
+
+#infoartista-page .footer-redes {
+  display: flex;
+  gap: 10px;
+}
+
+#infoartista-page .footer-redes span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MEDIA QUERY PARA ORDENADOR */
+@media (min-width: 768px) {
+  #infoartista-page .nf-header {
+    justify-content: space-between; /* Iconos a los extremos */
+    padding: 15px 60px;
+  }
+
+  #infoartista-page .nf-menu {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    background: #1aa6b7;
+    color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  #infoartista-page .nf-user {
+    display: flex;
+    background: #1aa6b7;
+    padding: 0 25px;
+    height: 38px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #infoartista-page .nf-user a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  #infoartista-page .nf-logo img {
+    width: 250px;
+  }
+
+  /* Contenido en dos columnas */
+  #infoartista-page .evento-contenido {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #infoartista-page .evento-texto {
+    width: 55%;
+  }
+
+  #infoartista-page .evento-texto h3 {
+    text-align: left;
+  }
+
+  #infoartista-page .imageneslm {
+    width: 40%;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1200px) {
+  #infoartista-page .nf-header {
+    padding: 20px 100px;
+  }
+
+  #infoartista-page .nf-logo img {
+    width: 280px;
+  }
+
+  #infoartista-page .infoevento {
+    padding: 20px 100px;
+  }
 }
