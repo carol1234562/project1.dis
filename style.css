@@ -1070,8 +1070,23 @@ body.discotecas .header {
   justify-content: space-between;
   align-items: center;
   padding: 30px 60px;
-  margin-bottom: 20px; /* espacio debajo del header */
+  position: relative; /* necesario para centrar el logo */
 
+}
+
+body.discotecas.header .menu {
+  z-index: 1;
+}
+
+body.discotecas .header .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* esto lo centra perfectamente */
+
+}
+
+body.discotecas .header .perfil {
+  z-index: 1;
 }
 
 /* Botones redondos de menú y perfil */
