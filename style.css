@@ -1049,6 +1049,7 @@ perfil
     justify-content: space-between;
     padding: 40px 100px;
   }
+}
 
 /* ===================================================
    PÁGINA DISCOTECAS
@@ -1066,27 +1067,53 @@ body.discotecas {
 
 /* Barra de arriba con el logo y botones */
 body.discotecas .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px; /* columnas fijas a los lados */
   align-items: center;
-  padding: 30px 60px;
-  position: relative; /* necesario para centrar el logo */
-
+  padding: 30px 300px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-body.discotecas.header .menu {
-  z-index: 1;
+body.discotecas .header .menu {
+  justify-self: start;
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 body.discotecas .header .logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /* esto lo centra perfectamente */
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  width: 100%; 
 
 }
 
+body.discotecas .header .logo img {
+  width: 280px;
+  height: auto;
+}
+
 body.discotecas .header .perfil {
-  z-index: 1;
+  justify-self: end;
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Botones redondos de menú y perfil */
@@ -1105,8 +1132,19 @@ body.discotecas .perfil {
 }
 
 /* El logo */
+body.discotecas .logo {
+  width: auto;
+  max-width: none;
+  height: auto;
+  object-fit: unset;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
 body.discotecas .logo img {
   width: 280px;
+  height: auto;
 }
 
 /* El contenido principal */
@@ -1273,5 +1311,4 @@ body.discotecas .footer-redes span {
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
-}
 }
