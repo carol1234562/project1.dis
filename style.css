@@ -4,38 +4,22 @@
    =================================================== */
 
 body {
-  /* Color de fondo azul oscuro de toda la página */
   background-color: #050B31;
-
-  /* Tipo de letra que usamos en toda la web */
   font-family: 'Montserrat', sans-serif;
-
-  /* Color del texto: blanco */
   color: white;
-
-  /* Quitamos los márgenes y rellenos que el navegador pone por defecto */
   margin: 0;
   padding: 0;
-
-  /* Flex en columna: logo arriba, footer abajo */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Esto separa el contenido: logo+form arriba y footer abajo */
   justify-content: space-between;
-
-  /* La página ocupa como mínimo toda la altura de la pantalla */
   min-height: 100vh;
-
-  /* Solo evitamos scroll horizontal */
   overflow-x: hidden;
 }
 
-/* Botón de volver atrás (la flecha «) */
 .return {
   position: absolute;
   top: 20px;
-  /* Separamos la flecha más de la izquierda */
   left: 50px;
   font-size: 35px;
   font-weight: 700;
@@ -43,7 +27,6 @@ body {
   z-index: 10;
 }
 
-/* En tablet la flecha es un poco más grande */
 @media (min-width: 768px) {
   .return {
     font-size: 45px;
@@ -52,7 +35,6 @@ body {
   }
 }
 
-/* En ordenador la flecha es aún más grande */
 @media (min-width: 1024px) {
   .return {
     font-size: 55px;
@@ -61,7 +43,6 @@ body {
   }
 }
 
-/* El formulario de login */
 form {
   display: flex;
   flex-direction: column;
@@ -191,8 +172,7 @@ input[type="submit"]:hover {
 
 /* ===================================================
    RESPONSIVE ESCRITORIO
-   Cuando la pantalla es de 1024px o más (ordenador)
-   =================================================== */
+   Cuando la pantalla es de 1024px o más (ordenador) 
 @media (min-width: 1024px) {
   .logo {
     max-width: 550px;
@@ -864,4 +844,213 @@ body.inicio {
   .foot {
     padding: 40px 100px;
   }
+
+/* ===================================================
+   PÁGINA DISCOTECAS
+   =================================================== */
+
+body.discotecas {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Barra de arriba con el logo y botones */
+body.discotecas .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  margin-bottom: 20px; /* espacio debajo del header */
+
+}
+
+/* Botones redondos de menú y perfil */
+body.discotecas .menu,
+body.discotecas .perfil {
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* El logo */
+body.discotecas .logo img {
+  width: 280px;
+}
+
+/* El contenido principal */
+body.discotecas main {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 40px 40px;
+}
+
+/* Título "Discotecas" */
+body.discotecas h2 {
+  text-align: center;
+  font-size: 26px;
+}
+
+/* Texto "458 próximos eventos" */
+body.discotecas .sub {
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Fila de filtros */
+body.discotecas .filtros {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Cada botón de filtro */
+body.discotecas .filtro {
+  background-color: white;
+  color: #050B31;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Cada fila de evento */
+body.discotecas .evento {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* El cuadrado azul con la fecha */
+body.discotecas .fecha {
+  background-color: #1aa6b7;
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.discotecas .fecha span {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+body.discotecas .fecha strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+body.discotecas .info {
+  flex: 1;
+}
+
+body.discotecas .hora {
+  font-size: 12px;
+  color: #bbb;
+}
+
+body.discotecas .info h3 {
+  font-size: 15px;
+  margin: 3px 0;
+}
+
+body.discotecas .info p {
+  font-size: 12px;
+  color: #ccc;
+}
+
+body.discotecas .estado {
+  font-size: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* La flecha >> de cada evento */
+body.discotecas .flecha {
+  font-size: 28px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body.discotecas .flecha:hover {
+  color: #1aa6b7;
+}
+
+body.discotecas .paginas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+body.discotecas .paginas span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #1aa6b7;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+body.discotecas .paginas span.activo {
+  background-color: white;
+  color: #1aa6b7;
+  font-weight: 700;
+}
+
+/* El pie de página */
+body.discotecas .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+/* Los enlaces del footer */
+body.discotecas .footer-links {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+}
+
+/* Los iconos de redes sociales */
+body.discotecas .footer-redes {
+  display: flex;
+  gap: 8px;
+}
+
+body.discotecas .footer-redes span {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
