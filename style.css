@@ -1306,7 +1306,7 @@ body.discotecas .footer-redes span {
   padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
-
+}
 body.discotecas .header {
   display: grid;
   grid-template-columns: 60px 1fr 60px;
@@ -1341,7 +1341,6 @@ body.discotecas .header .logo img {
   }
 }
 }
-<<<<<<< HEAD
 /*---------------------
 info
 ----------------------*/
@@ -1805,5 +1804,3 @@ info
     padding: 20px 100px;
   }
 }
-=======
->>>>>>> 7f9428858a92a31c096583ffca39922d38dee0de
