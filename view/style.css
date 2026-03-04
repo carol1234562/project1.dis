@@ -1,0 +1,1339 @@
+/* ===================================================
+   ESTILOS GENERALES
+   Estos estilos se aplican a TODAS las páginas
+   =================================================== */
+
+body {
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.return {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-size: 35px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .return {
+    font-size: 45px;
+    left: 40px;
+    top: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .return {
+    font-size: 55px;
+    left: 60px;
+    top: 30px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 400px;
+  /* margin: auto centra el formulario en la página */
+  margin: auto;
+  /* Espacio arriba para que no quede pegado al logo */
+  padding-top: 20px;
+}
+
+/* El logo de NightFest */
+.logo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 25px;
+}
+
+/* Las etiquetas de texto ("Correo electrónico", "Contraseña"...) */
+label {
+  margin: 10px 0;
+  font-size: 16px;
+  align-self: center;
+}
+
+/* Todos los campos de texto donde el usuario escribe */
+input {
+  background-color: #19819B;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* El texto gris que aparece dentro del input antes de escribir */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* El botón de enviar ("Iniciar sesión", "Registrarse"...) */
+input[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #19819B;
+  box-shadow: 0px 4px 10px #00FF88;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto al pasar el ratón por encima del botón */
+input[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px #00FF88;
+}
+
+/* Texto "¿No tienes cuenta?" */
+.texto-cuenta {
+  color: white;
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* Enlace "Regístrate" */
+.link-registro {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+/* El pie de página con Términos, Ayuda... */
+.foot {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+}
+
+/* Los textos "Términos", "Ayuda", "Privacidad" */
+.terms {
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.terms span {
+  margin-right: 10px;
+}
+
+/* Los iconos de redes sociales del footer */
+.fot {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+}
+
+/* ===================================================
+   RESPONSIVE TABLET
+   Cuando la pantalla es de 768px o más (tablets)
+   =================================================== */
+@media (min-width: 768px) {
+  .logo {
+    max-width: 350px;
+  }
+
+  form {
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 550px;
+  }
+
+  form {
+    max-width: 500px;
+  }
+
+  input {
+    padding: 15px;
+  }
+
+  input[type="submit"] {
+    width: 80%;
+  }
+
+  .return {
+    font-size: 55px;
+    left: 60px;
+  }
+
+  .foot {
+    padding: 30px 80px;
+  }
+}
+
+
+/* ===================================================
+   PÁGINA DE LOGIN
+   =================================================== */
+
+/* Centramos todo verticalmente en la pantalla */
+body.Login {
+  justify-content: center;
+  gap: 20px;
+}
+
+/* El logo del login más grande */
+body.Login .logo {
+  max-width: 320px;
+}
+
+/* El formulario del login sin tanto padding arriba */
+body.Login form {
+  padding-top: 0;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* El footer del login siempre abajo */
+body.Login .foot {
+  margin-top: auto;
+}
+
+/* En tablet el logo y los inputs son más grandes para aprovechar el espacio */
+@media (min-width: 768px) {
+  body.Login .logo {
+    max-width: 450px;
+  }
+
+  body.Login form {
+    max-width: 550px;
+  }
+
+  body.Login input {
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  body.Login label {
+    font-size: 18px;
+  }
+}
+
+/* El fondo y estructura general de la página registro */
+.registro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  /* Evita que aparezca la barra de scroll lateral */
+  overflow: hidden;
+}
+
+/* La flecha « para volver atrás */
+.registro .volver {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-size: 35px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  z-index: 10;
+}
+
+/* El contenedor del logo */
+.registro .logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* La imagen del logo dentro del contenedor */
+.registro .logo img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Las etiquetas ("Nombre de usuario", "Correo"...) */
+.registro label {
+  display: block;
+  text-align: center;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+/* La caja del formulario (el rectángulo semitransparente) */
+.registro form {
+  background-color: rgba(25, 129, 155, 0.2);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+}
+
+/* Cada fila del formulario (label + input) */
+.registro .input-box {
+  width: 100%;
+}
+
+/* Los campos donde el usuario escribe */
+.registro .input-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #19819B;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+/* El botón "Registrarse" */
+.registro input[type="submit"] {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #19819B;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 4px 10px #00FF88;
+  transition: 0.3s;
+}
+
+.registro input[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px #00FF88;
+}
+
+/* Registro en tablet */
+@media (min-width: 768px) {
+  .registro .volver {
+    font-size: 45px;
+    left: 40px;
+    top: 30px;
+  }
+
+  .registro .logo img {
+    max-width: 550px;
+  }
+
+  .registro form {
+    max-width: 480px;
+    padding: 40px;
+  }
+
+  .registro label {
+    font-size: 20px;
+  }
+}
+
+/* Registro en ordenador */
+@media (min-width: 1024px) {
+  .registro .volver {
+    font-size: 55px;
+    left: 60px;
+    top: 30px;
+  }
+
+  .registro .logo img {
+    max-width: 320px;
+  }
+
+  .registro form {
+    max-width: 450px;
+    padding: 30px;
+    gap: 10px;
+  }
+
+  .registro .input-box input {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .registro input[type="submit"] {
+    max-width: 200px;
+    font-size: 16px;
+  }
+}
+
+
+/* ===================================================
+   PÁGINA INICIO (la página principal con las cards)
+   =================================================== */
+
+body.inicio {
+  background-color: #050B31;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+/* La barra de arriba con el buscador y los botones */
+.inicio .topbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
+/* El buscador */
+.inicio #buscador {
+  width: 100%;
+  order: 3;
+  padding: 12px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: white;
+  color: #050B31;
+  font-size: 16px;
+}
+
+/* El icono de menú ☰ */
+.inicio .menu {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Los botones de "Iniciar sesión" y "Registrarse" */
+.inicio .right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inicio .right .link {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.inicio .right .btn {
+  background: #1cb5c9;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Cada sección (Destacados, Discotecas, Bares...) */
+.inicio .bloque {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* El título de cada sección y la flecha >> */
+.inicio .bloque-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px 5px;
+}
+
+.inicio .bloque-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* La flecha >> que lleva a ver más */
+.inicio .flecha-boton {
+  font-size: 45px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.3s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.inicio .flecha-boton:hover {
+  color: #1cb5c9;
+  transform: translateX(8px) scale(1.1);
+  text-shadow: 0px 0px 15px rgba(28, 181, 201, 0.8);
+}
+
+/* La fila de tarjetas (se puede hacer scroll horizontal) */
+.inicio .cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 15px 25px 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ocultamos la barra de scroll fea */
+.inicio .cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cada tarjeta individual */
+.inicio .card {
+  background: #1cb5c9;
+  flex: 0 0 300px;
+  height: auto;
+  min-height: 400px;
+  border-radius: 18px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* La imagen dentro de la tarjeta */
+.inicio .card .img {
+  width: 100%;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.inicio .card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* El texto dentro de la tarjeta */
+.inicio .card .texto span {
+  text-align: justify;
+  display: block;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Inicio en ordenador */
+@media (min-width: 1024px) {
+  .inicio .topbar {
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .inicio #buscador {
+    width: 60%;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .inicio .menu {
+    order: 1;
+    width: 100px;
+  }
+
+  .inicio .right {
+    order: 3;
+    width: auto;
+    justify-content: flex-end;
+  }
+
+  .inicio .bloque-header {
+    padding: 40px 60px 10px;
+  }
+
+  .inicio .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 80px 60px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .inicio .card {
+    flex: 0 0 320px;
+    height: fit-content;
+    min-height: 380px;
+  }
+
+  .inicio .card .img {
+    height: 160px;
+  }
+
+  .inicio .card .texto {
+    overflow-y: visible;
+    height: auto;
+  }
+
+  .inicio .card .texto span {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  /* Las tarjetas suben un poco al pasar el ratón por encima */
+  .inicio .card:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/*destacados*/
+.nf-body {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.nf-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.nf-menu {
+  justify-self: start;
+}
+
+.nf-logo {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.nf-logo a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nf-user {
+  justify-self: end;
+}
+
+.nf-menu {
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nf-user {
+  background: #1cb5c9;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+}
+
+.nf-user a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  display: block;
+}
+
+
+.nf-logo img {
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nf-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.nf-title {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.nf-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  padding: 0 20px 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nf-col {
+  width: 100%;
+  max-width: 360px;
+  background: #1cb5c9;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.nf-col img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.nf-col p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: white;
+  text-align: justify;
+}
+
+.foot {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terms {
+  color: white;
+  font-size: 13px;
+  display: flex;
+  gap: 15px;
+}
+
+.fot {
+  display: flex;
+  gap: 10px;
+}
+
+.fot span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .nf-header {
+    padding: 40px 100px 10px;
+    grid-template-columns: 1fr 600px 1fr;
+  }
+
+  .nf-logo {
+    padding: 0 60px;
+  }
+
+  .nf-logo img {
+    width: 380px;
+  }
+
+  .nf-grid {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+    padding: 40px 0 80px;
+    overflow: visible;
+  }
+
+  .nf-user:hover {
+    background: #1aa6b7;
+  }
+}
+
+.nf-col {
+  flex: 0 1 450px;
+  max-width: 500px;
+  padding: 35px;
+}
+
+.nf-title {
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.foot {
+  padding: 40px 100px;
+}
+
+/*---------------------
+perfil
+----------------------*/
+.pf-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pf-menu,
+.pf-user {
+  display: none; 
+}
+
+.pf-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.pf-logo img {
+  width: 400px;
+  height: auto;
+}
+
+.pf-container {
+  width: 100%;
+  padding: 20px 15px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.pf-title {
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.pf-card {
+  background: #1e2a5a;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+.pf-avatar {
+  width: 80px;
+  height: 80px;
+  background: #19819B;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.pf-card h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.pf-card p {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 25px;
+}
+
+.pf-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pf-options button {
+  background: #19819B;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.pf-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  color: white;
+}
+
+.pf-links {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.pf-social {
+  display: flex;
+  gap: 10px;
+}
+
+.pf-social span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.pf-social span:hover {
+  background: #1aa6b7;
+}
+
+@media (min-width: 768px) {
+  .pf-header {
+    display: grid;
+    padding: 30px 60px;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .pf-menu {
+    display: flex;
+    justify-self: start;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .pf-user {
+    display: flex;
+    justify-self: end;
+    background: #1cb5c9;
+    border-radius: 20px;
+    padding: 8px 18px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .pf-logo img {
+    width: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .pf-card {
+    padding: 40px;
+    max-width: 450px;
+  }
+
+  .pf-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pf-header {
+    grid-template-columns: 1fr 600px 1fr;
+    padding: 40px 100px 10px;
+  }
+
+  .pf-logo img {
+    width: 420px;
+  }
+
+  .pf-card {
+    max-width: 480px;
+    padding: 50px;
+  }
+
+  .pf-title {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .pf-options button:hover {
+    background: #1cb5c9;
+    transform: translateY(-2px);
+  }
+
+  .pf-footer {
+    padding: 40px 100px;
+  }
+}
+
+/* ===================================================
+   PÁGINA DISCOTECAS
+   =================================================== */
+
+body.discotecas {
+  margin: 0;
+  background-color: #050B31;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Barra de arriba con el logo y botones */
+body.discotecas .header {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px; /* columnas fijas a los lados */
+  align-items: center;
+  padding: 30px 200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.discotecas .header .menu {
+  justify-self: start;
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body.discotecas .header .logo {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+
+}
+
+body.discotecas .header .logo img {
+  width: 400px;
+  height: auto;
+}
+
+body.discotecas .header .perfil {
+  justify-self: end;
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Botones redondos de menú y perfil */
+body.discotecas .menu,
+body.discotecas .perfil {
+  width: 36px;
+  height: 36px;
+  background-color: #1aa6b7;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* El logo */
+body.discotecas .logo {
+  width: auto;
+  max-width: none;
+  height: auto;
+  object-fit: unset;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+body.discotecas .logo img {
+  width: 280px;
+  height: auto;
+}
+
+/* El contenido principal */
+body.discotecas main {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px 40px 40px;
+}
+
+body.discotecas h2 {
+  text-align: center;
+  font-size: 26px;
+}
+
+body.discotecas .sub {
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+body.discotecas .filtros {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+body.discotecas .filtro {
+  background-color: white;
+  color: #050B31;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+body.discotecas .evento {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.discotecas .fecha {
+  background-color: #1aa6b7;
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+body.discotecas .fecha span {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+body.discotecas .fecha strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+body.discotecas .info {
+  flex: 1;
+}
+
+body.discotecas .hora {
+  font-size: 12px;
+  color: #bbb;
+}
+
+body.discotecas .info h3 {
+  font-size: 15px;
+  margin: 3px 0;
+}
+
+body.discotecas .info p {
+  font-size: 12px;
+  color: #ccc;
+}
+
+body.discotecas .estado {
+  font-size: 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+body.discotecas .flecha {
+  font-size: 28px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body.discotecas .flecha:hover {
+  color: #1aa6b7;
+}
+
+body.discotecas .paginas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+body.discotecas .paginas span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #1aa6b7;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+body.discotecas .paginas span.activo {
+  background-color: white;
+  color: #1aa6b7;
+  font-weight: 700;
+}
+
+body.discotecas .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 580px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+body.discotecas .footer-links {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+}
+
+body.discotecas .footer-redes {
+  display: flex;
+  gap: 8px;
+  padding-left: 800px;
+}
+
+body.discotecas .footer-redes span {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+body.discotecas .header {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+  padding: 20px 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.discotecas .header .logo img {
+  width: 180px; 
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  body.discotecas .header {
+    padding: 25px 40px;
+  }
+
+  body.discotecas .header .logo img {
+    width: 280px; 
+  }
+}
+
+@media (min-width: 1024px) {
+  body.discotecas .header {
+    padding: 30px 60px;
+  }
+
+  body.discotecas .header .logo img {
+    width: 400px; 
+  }
+}
+}
