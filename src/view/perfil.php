@@ -1,5 +1,5 @@
 <?php
-require_once '../static model/seguridad.php';
+require_once '../static model/segurity.php';
 require_once '../Controller/UserController.php';
 if (session_status() === PHP_SESSION_NONE) session_start();
 
@@ -99,14 +99,142 @@ if (!isset($_SESSION['user_id'])) {
                     <button class="pf-btn pf-btn-logout" onclick="window.location.href='../Controller/UserController.php?action=logout'">
                         CERRAR SESIÓN
                     </button>
+                    <button class="pf-btn pf-btn-danger" id="open-delete-modal-btn">
+                        ELIMINAR CUENTA
+                    </button>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modal de confirmación de eliminación de cuenta -->
+    <div id="delete-account-modal" class="modal-overlay">
+        <div class="modal-content <?php echo $es_admin ? 'modal-admin' : 'modal-standard'; ?>">
+            <div class="modal-header">
+                <i class="fa-solid fa-triangle-exclamation modal-icon"></i>
+                <h3>Eliminar Cuenta</h3>
+            </div>
+            <div class="modal-body">
+                <?php if ($es_admin): ?>
+                    <p class="warning-text"><strong>¡ADVERTENCIA DE ADMINISTRADOR!</strong></p>
+                    <p>Estás a punto de eliminar de forma permanente una cuenta de <strong>ADMINISTRADOR</strong>. Esta acción es crítica y no se puede deshacer.</p>
+                    <p class="instruction-text">Para confirmar la eliminación, introduce el código de seguridad de administrador:</p>
+                    
+                    <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
+                        <div class="input-container">
+                            <input type="text" id="admin-confirm-code" name="admin_code" class="modal-input" placeholder="Introduce 'admin123'" autocomplete="off" required>
+                            <span class="validation-badge invalid" id="validation-badge"><i class="fa-solid fa-xmark"></i></span>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="pf-btn modal-btn-cancel" id="close-delete-modal">CANCELAR</button>
+                            <button type="submit" class="pf-btn pf-btn-danger modal-btn-confirm" id="confirm-delete-btn" disabled>ELIMINAR PERMANENTEMENTE</button>
+                        </div>
+                    </form>
+                <?php else: ?>
+                    <p>¿Estás seguro de que deseas eliminar tu cuenta de <strong>NightFest</strong>?</p>
+                    <p class="warning-text">Esta acción es irreversible y borrará toda tu información de perfil de forma permanente.</p>
+                    
+                    <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
+                        <div class="modal-actions">
+                            <button type="button" class="pf-btn modal-btn-cancel" id="close-delete-modal">CANCELAR</button>
+                            <button type="submit" class="pf-btn pf-btn-danger modal-btn-confirm" id="confirm-delete-btn">SÍ, ELIMINAR CUENTA</button>
+                        </div>
+                    </form>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 
        <?php include '../static model/footer.php'; ?>
 
 
 </body>
 </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const openModalBtn = document.getElementById('open-delete-modal-btn');
+    const closeModalBtn = document.getElementById('close-delete-modal');
+    const modal = document.getElementById('delete-account-modal');
+    const adminInput = document.getElementById('admin-confirm-code');
+    const confirmBtn = document.getElementById('confirm-delete-btn');
+    const validationBadge = document.getElementById('validation-badge');
+
+    // Abrir Modal
+    if (openModalBtn) {
+        openModalBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.classList.add('active');
+            if (adminInput) {
+                setTimeout(() => adminInput.focus(), 150);
+            }
+        });
+    }
+
+    // Cerrar Modal al hacer clic en Cancelar
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+            if (adminInput) {
+                adminInput.value = '';
+                resetAdminValidation();
+            }
+        });
+    }
+
+    // Cerrar Modal al hacer clic fuera de la caja
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            if (adminInput) {
+                adminInput.value = '';
+                resetAdminValidation();
+            }
+        }
+    });
+
+    // Cerrar Modal con tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            if (adminInput) {
+                adminInput.value = '';
+                resetAdminValidation();
+            }
+        }
+    });
+
+    // Validación en tiempo real para Administradores
+    if (adminInput && confirmBtn && validationBadge) {
+        adminInput.addEventListener('input', function() {
+            const value = adminInput.value.trim();
+            if (value === 'admin123') {
+                // Estado VÁLIDO
+                confirmBtn.removeAttribute('disabled');
+                validationBadge.className = 'validation-badge valid';
+                validationBadge.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                adminInput.style.borderColor = '#2ecc71';
+                adminInput.style.boxShadow = '0 0 10px rgba(46, 204, 113, 0.3)';
+            } else {
+                // Estado INVÁLIDO
+                confirmBtn.setAttribute('disabled', 'true');
+                validationBadge.className = 'validation-badge invalid';
+                validationBadge.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                adminInput.style.borderColor = '#e74c3c';
+                adminInput.style.boxShadow = '0 0 10px rgba(231, 76, 60, 0.3)';
+            }
+        });
+    }
+
+    function resetAdminValidation() {
+        if (confirmBtn && validationBadge && adminInput) {
+            confirmBtn.setAttribute('disabled', 'true');
+            validationBadge.className = 'validation-badge invalid';
+            validationBadge.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            adminInput.style.borderColor = '';
+            adminInput.style.boxShadow = '';
+        }
+    }
+});
+</script>
 
