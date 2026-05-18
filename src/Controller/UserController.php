@@ -152,11 +152,24 @@ class UserController
     }
 
     // --- MÉTODO: ELIMINAR CUENTA ---
-    public function deleteAccount($id) {
+    public function deleteAccount($id, $adminCode = null) {
         $id = $this->connection->real_escape_string($id);
         
         $user = $this->getUserData($id);
-        if ($user && $user['foto_perfil'] !== 'default.png') {
+        if (!$user) {
+            header("Location: ../view/perfil.php?error=usuario_no_encontrado");
+            exit();
+        }
+
+        // Si el usuario es administrador, comprobar que el código sea correcto
+        if ($user['rol'] === 'admin') {
+            if ($adminCode !== 'admin123') {
+                header("Location: ../view/perfil.php?error=codigo_admin_incorrecto");
+                exit();
+            }
+        }
+        
+        if ($user['foto_perfil'] !== 'default.png') {
             $rutaFoto = "../assets/img/uploads/" . $user['foto_perfil'];
             if (file_exists($rutaFoto)) {
                 unlink($rutaFoto); 
@@ -225,7 +238,8 @@ if ($action === 'logout') {
 } elseif ($action === 'deleteAccount') {
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (isset($_SESSION['user_id'])) {
-        $uc->deleteAccount($_SESSION['user_id']);
+        $adminCode = $_POST['admin_code'] ?? null;
+        $uc->deleteAccount($_SESSION['user_id'], $adminCode);
     } else {
         header("Location: ../view/login.php");
     }
