@@ -6,6 +6,9 @@ ob_start();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // 3. Destrucción de la caché del navegador (Previene el fallo al volver atrás)
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -238,9 +241,12 @@ if ($is_logged && isset($_SESSION['user_name'])) {
                 </a>
             <?php endif; ?>
             
-            <a href="../Controller/UserController.php?action=logout" title="Cerrar Sesión" style="margin-left: 10px;">
-                <i class="fas fa-sign-out-alt cj-h-icon-logout"></i>
-            </a>
+            <form action="../Controller/UserController.php?action=logout" method="POST" style="display: inline-flex; align-items: center; margin-left: 10px;">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                <button type="submit" title="Cerrar Sesión" style="background: none; border: none; padding: 0; cursor: pointer; color: inherit; display: inline-flex; align-items: center;">
+                    <i class="fas fa-sign-out-alt cj-h-icon-logout"></i>
+                </button>
+            </form>
 
         <?php else: ?>
             <a href="login.php" class="cj-h-link-login" style="margin-right: 15px;">Iniciar Sesión</a>

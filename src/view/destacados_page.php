@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) session_start();
 $is_logged = isset($_SESSION['user_id']);
 $es_admin = ($is_logged && isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
 $inicial = ($is_logged && isset($_SESSION['user_name'])) ? strtoupper(substr($_SESSION['user_name'], 0, 1)) : "";

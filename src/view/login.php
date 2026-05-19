@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) session_start();
 // Si ya hay una sesión activa, lo mandamos al inicio (esto está perfecto)
 if (isset($_SESSION['user_id'])) {
     header("Location: inicio1.php");
