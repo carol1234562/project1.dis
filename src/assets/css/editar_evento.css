@@ -1,0 +1,83 @@
+.form-container-custom {
+    background: #111;
+    border: 1px solid #D4AF37;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    margin: 50px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+.form-title {
+    text-align: center;
+    color: #D4AF37;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+.input-group-custom {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input-group-custom label {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.input-group-custom input, .input-group-custom select {
+    background: #000;
+    border: 1px solid #333;
+    padding: 14px;
+    color: #fff;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.input-group-custom input:focus, .input-group-custom select:focus {
+    border-color: #D4AF37;
+}
+.submit-btn-custom {
+    background: #D4AF37;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+.submit-btn-custom:hover {
+    background: #b8952e;
+    transform: translateY(-2px);
+}
+.current-image-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 8px;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+.current-image-preview img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #D4AF37;
+}

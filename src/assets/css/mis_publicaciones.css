@@ -1,0 +1,180 @@
+/* Estilos para mis_publicaciones.php */
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+    border-left: 4px solid #D4AF37;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title-line {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.eventos-cascada {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.evento-row {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.3s, background-color 0.3s;
+}
+
+.evento-row:hover {
+    background-color: #222;
+    border-color: #D4AF37;
+    transform: scale(1.01);
+}
+
+.img-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+    flex-shrink: 0;
+    border: 1px solid #333;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-principal {
+    flex-grow: 1;
+}
+
+.fecha-badge {
+    color: #D4AF37;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.info-principal h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.info-principal p {
+    color: #bbb;
+    font-size: 0.85rem;
+}
+
+.info-principal i {
+    color: #D4AF37;
+    margin-right: 5px;
+}
+
+.estado-accion {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.status-badge {
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-badge.status-agotado {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.status-badge.status-proximamente {
+    border-color: #f1c40f;
+    color: #f1c40f;
+}
+
+.admin-row-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-btn {
+    background: none;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.admin-btn-edit:hover {
+    background: #D4AF37;
+    color: #000;
+    border-color: #D4AF37;
+}
+
+.admin-btn-delete:hover {
+    background: #ff4d4d;
+    color: #fff;
+    border-color: #ff4d4d;
+}
+
+.paginacion-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pag-link {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.pag-link.active, .pag-link:hover {
+    background-color: #D4AF37;
+    color: #000;
+    border-color: #D4AF37;
+}

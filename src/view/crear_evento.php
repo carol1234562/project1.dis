@@ -18,74 +18,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/registro_admin.css">
     <link rel="stylesheet" href="../assets/css/STYLE1.css">
-    <style>
-        .form-container-custom {
-            background: #111;
-            border: 1px solid #D4AF37;
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            margin: 50px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.1);
-        }
-        .form-title {
-            text-align: center;
-            color: #D4AF37;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            font-size: 1.5rem;
-        }
-        .input-group-custom {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .input-group-custom label {
-            color: #ccc;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .input-group-custom input, .input-group-custom select {
-            background: #000;
-            border: 1px solid #333;
-            padding: 14px;
-            color: #fff;
-            border-radius: 6px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-        .input-group-custom input:focus, .input-group-custom select:focus {
-            border-color: #D4AF37;
-        }
-        .submit-btn-custom {
-            background: #D4AF37;
-            color: #000;
-            font-weight: 700;
-            border: none;
-            padding: 15px;
-            border-radius: 6px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            width: 100%;
-            font-family: 'Montserrat', sans-serif;
-            margin-top: 10px;
-        }
-        .submit-btn-custom:hover {
-            background: #b8952e;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/crear_evento.css">
 </head>
 <body class="login-page">
 

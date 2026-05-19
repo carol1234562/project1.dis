@@ -84,54 +84,7 @@
     </div>
 </footer>
 
-<style>
-#cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background-color: #1a1a1a;
-    border: 1px solid #D4AF37;
-    padding: 20px;
-    border-radius: 12px;
-    z-index: 10001;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
-}
-
-#cookie-banner p, #cookie-banner span {
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    line-height: 1.4;
-}
-
-#accept-cookies {
-    background-color: #D4AF37;
-    color: #000000;
-    border: none;
-    padding: 10px 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-#accept-cookies:hover {
-    background-color: #b8952e;
-    transform: scale(1.05);
-}
-</style>
+<link rel="stylesheet" href="../assets/css/footer.css">
 
 <div id="cookie-banner">
     <span>NightFest utiliza cookies para mejorar tu experiencia. Debes aceptarlas para poder iniciar sesión o registrarte.</span>
