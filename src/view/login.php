@@ -62,7 +62,7 @@ if (isset($_SESSION['user_id'])) {
             <input type="submit" name= "login" value="Iniciar sesión" class="btn-login-submit">
         </form>
     </div>
-         <?php include '../static model/footer.php'; ?>
+         <?php include 'footer.php'; ?>
 
 </body>
 </html>

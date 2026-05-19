@@ -66,7 +66,7 @@
         <button id="accept-cookies" class="btn-gold" style="padding: 5px 15px;">ACEPTAR</button>
     </div>
 
-    <?php include '../static model/header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <main class="container">
         
@@ -161,7 +161,7 @@
 
     </main>
 
-    <?php include '../static model/footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
