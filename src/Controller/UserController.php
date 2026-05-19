@@ -35,10 +35,10 @@ class UserController
                 // SOLUCIÓN: Guardamos la foto en la sesión para que el header.php la pueda leer
                 $_SESSION['user_photo'] = $user['foto_perfil']; 
 
-                header("Location: ../view/inicio1.php");
+                header("Location: ../View/inicio1.php");
                 exit();
             } else {
-                header("Location: ../view/login.php?error=Datos_Incorrectos");
+                header("Location: ../View/login.php?error=Datos_Incorrectos");
                 exit();
             }
         }
@@ -56,19 +56,19 @@ class UserController
             $rol    = $_POST['rol'] ?? 'estandar';
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                header("Location: ../view/registro_" . $rol . ".php?error=Formato de email invalido");
+                header("Location: ../View/registro_" . $rol . ".php?error=Formato de email invalido");
                 exit();
             }
 
             if (strlen($pass) < 6) {
-                header("Location: ../view/registro_" . $rol . ".php?error=La contrasena debe tener minimo 6 caracteres");
+                header("Location: ../View/registro_" . $rol . ".php?error=La contrasena debe tener minimo 6 caracteres");
                 exit();
             }
 
             if ($rol === 'admin') {
                 $codigo = $_POST['admin_code'] ?? '';
                 if ($codigo !== "admin123") {
-                    header("Location: ../view/registro_admin.php?error=Codigo de administrador incorrecto");
+                    header("Location: ../View/registro_admin.php?error=Codigo de administrador incorrecto");
                     exit();
                 }
             }
@@ -80,7 +80,7 @@ class UserController
                 $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
 
                 if (!in_array($ext, $ext_permitidas)) {
-                    header("Location: ../view/registro_" . $rol . ".php?error=Formato de imagen no permitido");
+                    header("Location: ../View/registro_" . $rol . ".php?error=Formato de imagen no permitido");
                     exit();
                 }
 
@@ -106,7 +106,7 @@ class UserController
             if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
                 header("Location: ../view/login.php?success= Cuenta creada correctamente");
             } else {
-                header("Location: ../view/registro_" . $rol . ".php?error=El correo ya esta registrado");
+                header("Location: ../View/registro_" . $rol . ".php?error=El correo ya esta registrado");
             }
             exit();
         }
@@ -149,7 +149,7 @@ class UserController
         session_destroy();
         
         // 4. Redirigir
-        header("Location: ../view/inicio1.php");
+        header("Location: ../View/inicio1.php");
         exit();
     }
 
@@ -167,14 +167,14 @@ class UserController
         
         $user = $this->getUserData($id);
         if (!$user) {
-            header("Location: ../view/perfil.php?error=usuario_no_encontrado");
+            header("Location: ../View/perfil.php?error=usuario_no_encontrado");
             exit();
         }
 
         // Si el usuario es administrador, comprobar que el código sea correcto
         if ($user['rol'] === 'admin') {
             if ($adminCode !== 'admin123') {
-                header("Location: ../view/perfil.php?error=codigo_admin_incorrecto");
+                header("Location: ../View/perfil.php?error=codigo_admin_incorrecto");
                 exit();
             }
         }
@@ -190,7 +190,7 @@ class UserController
         if ($this->connection->query($sql)) {
             $this->logout(); 
         } else {
-            header("Location: ../view/perfil.php?error=no_se_pudo_borrar");
+            header("Location: ../View/perfil.php?error=no_se_pudo_borrar");
             exit();
         }
     }
@@ -251,7 +251,7 @@ if ($action === 'logout') {
         $adminCode = $_POST['admin_code'] ?? null;
         $uc->deleteAccount($_SESSION['user_id'], $adminCode);
     } else {
-        header("Location: ../view/login.php");
+        header("Location: ../View/login.php");
     }
 } else {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

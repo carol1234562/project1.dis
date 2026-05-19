@@ -1,5 +1,5 @@
 <?php
-require_once '../static model/seguridad.php';
+require_once '../Model/seguridad.php';
 $conexion = new mysqli("localhost", "root", "", "NightFest");
 
 if ($conexion->connect_error) {
@@ -39,7 +39,7 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
 </head>
 <body id="discotecas-page">
 
-        <?php include '../static model/header.php';
+        <?php include 'header.php';
         if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -86,7 +86,7 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
         <?php endif; ?>
     </main>
 
-    <?php include '../static model/footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
 
 </body>

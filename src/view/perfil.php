@@ -1,5 +1,5 @@
 <?php
-require_once '../static model/segurity.php';
+require_once '../Model/segurity.php';
 require_once '../Controller/UserController.php';
 if (session_status() === PHP_SESSION_NONE) session_start();
 
@@ -52,7 +52,7 @@ if (!empty($foto_usuario) && file_exists($carpeta_img . $foto_usuario)) {
     $foto_url = $carpeta_img . 'default.jpg'; 
 }
 
-include_once '../static model/header.php'; 
+include_once 'header.php'; 
 
 // 2. MURO DE SEGURIDAD: Si no hay sesión válida, lo expulsamos inmediatamente
 if (!isset($_SESSION['user_id'])) {
@@ -107,7 +107,7 @@ if (!isset($_SESSION['user_id'])) {
                     <?php endif; ?>
                     
                     <button class="pf-btn">SEGURIDAD</button>
-                    <form action="../Controller/UserController.php?action=logout" method="POST" style="display: contents;">
+                    <form action="../Controller/UserController.php?action=logout" method="POST" onsubmit="localStorage.removeItem('welcomeShown');" style="display: contents;">
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                         <button type="submit" class="pf-btn pf-btn-logout">
                             CERRAR SESIÓN
@@ -159,7 +159,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-       <?php include '../static model/footer.php'; ?>
+       <?php include 'footer.php'; ?>
 
 
 </body>
