@@ -21,7 +21,7 @@ $pagina_actual = 'destacados_page';
 </head>
 <body class="news-layout">
     
-    <?php include '../static model/header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <main class="container">
         <header class="page-intro">
@@ -69,7 +69,7 @@ $pagina_actual = 'destacados_page';
 
         </section>
     </main>
-    <?php include '../static model/footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 </html>

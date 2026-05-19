@@ -64,7 +64,7 @@ if (isset($_SESSION['user_id'])) {
             <input type="submit" value="Crear Cuenta" class="btn-login-submit">
         </form>
     </div>
-        <?php include '../static model/footer.php'; ?>
+        <?php include 'footer.php'; ?>
 
 
 </body>
