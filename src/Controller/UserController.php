@@ -104,7 +104,7 @@ class UserController
 
 
             if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
-                header("Location: ../view/login.php?success=cuenta_creada");
+                header("Location: ../view/login.php?success= Cuenta creada correctamente");
             } else {
                 header("Location: ../view/registro_" . $rol . ".php?error=El correo ya esta registrado");
             }
