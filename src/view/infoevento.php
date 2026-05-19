@@ -1,6 +1,6 @@
 <?php
 require_once '../static model/seguridad.php';
-session_start();
+if (session_status() === PHP_SESSION_NONE) session_start();
 $conexion = new mysqli("localhost", "root", "", "NightFest");
 
 if ($conexion->connect_error) {

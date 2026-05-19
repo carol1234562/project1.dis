@@ -17,7 +17,18 @@ $uc = new UserController();
 $user = $uc->getUserData($_SESSION['user_id']);
 
 if (!$user) {
-    header("Location: ../Controller/UserController.php?action=logout");
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    $_SESSION = array(); 
+    session_unset();
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    session_destroy();
+    header("Location: login.php");
     exit();
 }
 $foto_usuario = $user['foto_profile'] ?? $user['foto_perfil']; 
@@ -96,9 +107,12 @@ if (!isset($_SESSION['user_id'])) {
                     <?php endif; ?>
                     
                     <button class="pf-btn">SEGURIDAD</button>
-                    <button class="pf-btn pf-btn-logout" onclick="window.location.href='../Controller/UserController.php?action=logout'">
-                        CERRAR SESIÓN
-                    </button>
+                    <form action="../Controller/UserController.php?action=logout" method="POST" style="display: contents;">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        <button type="submit" class="pf-btn pf-btn-logout">
+                            CERRAR SESIÓN
+                        </button>
+                    </form>
                     <button class="pf-btn pf-btn-danger" id="open-delete-modal-btn">
                         ELIMINAR CUENTA
                     </button>
