@@ -1,24 +1,14 @@
 <?php
 
+require_once __DIR__ . '/../../model/Db.php';
 class UserController
 {
-    private mysqli $connection;
+    // Variable que guarda la conexión a la base de datos
+    private $connection;
 
     public function __construct()
-    {
-        // --- CONFIGURACIÓN DE CONEXIÓN ---
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db   = "nightfest";
-
-        $this->connection = new mysqli($host, $user, $pass, $db);
-
-        if ($this->connection->connect_error) {
-            die("Error de conexión: " . $this->connection->connect_error);
-        }
-
-        $this->connection->set_charset("utf8mb4");
+    {   // Usamos la clase Db.php para obtener la conexión PDO
+        $this->connection = Db::getConexion();
     }
 
     // --- MÉTODO: LOGIN ---
@@ -26,17 +16,18 @@ class UserController
         if (session_status() === PHP_SESSION_NONE) session_start();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email = $this->connection->real_escape_string(trim($_POST['email']));
-            $password = $this->connection->real_escape_string(trim($_POST['password']));
-
-            // SOLUCIÓN: Añadimos 'foto_perfil' a la consulta SQL
-            $sql = "SELECT id, nombre, email, rol, foto_perfil FROM usuarios 
-                    WHERE email = '$email' AND password = '$password'";
+            $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
             
-            $result = $this->connection->query($sql);
+            // Buscamos solo por email, no comparamos password en el SQL
+            $stmt = $this->connection->prepare(
+                "SELECT id, nombre, email, rol, foto_perfil, password FROM usuarios WHERE email = ?"
+            );
+            $stmt->execute([$email]);
+            $user = $stmt->fetch();
 
-            if ($result && $result->num_rows > 0) {
-                $user = $result->fetch_assoc();
+            // Comparamos lo que escribió el usuario con el hash guardado en la base de datos
+            if ($user && password_verify($password, $user['password'])) {
 
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['nombre'];
@@ -106,10 +97,14 @@ class UserController
             $stmt = $this->connection->prepare(
                 "INSERT INTO usuarios (nombre, email, password, rol, foto_perfil) VALUES (?, ?, ?, ?, ?)"
             );
-            $stmt->bind_param("sssss", $nombre, $email, $pass, $rol, $nombre_foto);
+            //$stmt->bind_param("sssss", $nombre, $email, $pass, $rol, $nombre_foto);
 
-            if ($stmt->execute()) {
-                header("Location: ../View/login.php?success=cuenta_creada");
+            //if ($stmt->execute()) {
+            $passHash = password_hash($pass, PASSWORD_BCRYPT); // Convierte la contraseña en un hash seguro antes de guardarla
+
+
+            if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
+                header("Location: ../view/login.php?success= Cuenta creada correctamente");
             } else {
                 header("Location: ../View/registro_" . $rol . ".php?error=El correo ya esta registrado");
             }
