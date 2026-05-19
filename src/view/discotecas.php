@@ -6,34 +6,24 @@ if ($conexion->connect_error) {
     die("Error de conexión");
 }
 
-$eventos_por_pagina = 8;
-$max_paginas_permitidas = 10;
-$total_max_eventos = 80;
+$eventos_por_pagina = 10;
 
 $pagina_actual = isset($_GET['p']) ? (int)$_GET['p'] : 1;
 if ($pagina_actual < 1) $pagina_actual = 1;
-if ($pagina_actual > $max_paginas_permitidas) $pagina_actual = $max_paginas_permitidas;
 
 $offset = ($pagina_actual - 1) * $eventos_por_pagina;
 
-$sql = "SELECT * FROM (
-            SELECT * FROM eventos 
-            WHERE fecha_evento >= CURDATE() 
-            ORDER BY fecha_evento ASC 
-            LIMIT $total_max_eventos
-        ) AS subconsulta 
+$sql = "SELECT * FROM eventos 
+        WHERE fecha_evento >= CURDATE() 
+        ORDER BY fecha_evento ASC 
         LIMIT $eventos_por_pagina OFFSET $offset";
 
 $resultado = $conexion->query($sql);
 
-$conteo_query = "SELECT COUNT(*) as total FROM (
-                    SELECT id FROM eventos 
-                    WHERE fecha_evento >= CURDATE() 
-                    LIMIT $total_max_eventos
-                ) AS temp";
+$conteo_query = "SELECT COUNT(*) as total FROM eventos WHERE fecha_evento >= CURDATE()";
 $conteo_res = $conexion->query($conteo_query);
-$total_eventos_validos = ($conteo_res) ? $conteo_res->fetch_assoc()['total'] : 0;
-$total_paginas_reales = ceil($total_eventos_validos / $eventos_por_pagina);
+$total_registros = ($conteo_res) ? $conteo_res->fetch_assoc()['total'] : 0;
+$total_paginas = ceil($total_registros / $eventos_por_pagina);
 ?>
 
 <!DOCTYPE html>
@@ -85,9 +75,9 @@ $total_paginas_reales = ceil($total_eventos_validos / $eventos_por_pagina);
             <?php endif; ?>
         </div>
 
-        <?php if ($total_paginas_reales > 1): ?>
+        <?php if ($total_paginas > 1): ?>
         <div class="paginacion-container">
-            <?php for ($i = 1; $i <= $total_paginas_reales; $i++): ?>
+            <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
                 <a href="?p=<?php echo $i; ?>" class="pag-link <?php echo ($i == $pagina_actual) ? 'active' : ''; ?>">
                     <?php echo $i; ?>
                 </a>
