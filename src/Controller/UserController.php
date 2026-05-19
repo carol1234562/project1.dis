@@ -96,9 +96,13 @@ class UserController
             $stmt = $this->connection->prepare(
                 "INSERT INTO usuarios (nombre, email, password, rol, foto_perfil) VALUES (?, ?, ?, ?, ?)"
             );
-            $stmt->bind_param("sssss", $nombre, $email, $pass, $rol, $nombre_foto);
+            //$stmt->bind_param("sssss", $nombre, $email, $pass, $rol, $nombre_foto);
 
-            if ($stmt->execute()) {
+            //if ($stmt->execute()) {
+            $passHash = password_hash($pass, PASSWORD_BCRYPT); // Convierte la contraseña en un hash seguro antes de guardarla
+
+
+            if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
                 header("Location: ../view/login.php?success=cuenta_creada");
             } else {
                 header("Location: ../view/registro_" . $rol . ".php?error=El correo ya esta registrado");
