@@ -107,7 +107,7 @@ if (!isset($_SESSION['user_id'])) {
                     <?php endif; ?>
                     
                     <button class="pf-btn">SEGURIDAD</button>
-                    <form action="../Controller/UserController.php?action=logout" method="POST" style="display: contents;">
+                    <form action="../Controller/UserController.php?action=logout" method="POST" onsubmit="localStorage.removeItem('welcomeShown');" style="display: contents;">
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                         <button type="submit" class="pf-btn pf-btn-logout">
                             CERRAR SESIÓN

@@ -241,7 +241,7 @@ if ($is_logged && isset($_SESSION['user_name'])) {
                 </a>
             <?php endif; ?>
             
-            <form action="../Controller/UserController.php?action=logout" method="POST" style="display: inline-flex; align-items: center; margin-left: 10px;">
+            <form action="../Controller/UserController.php?action=logout" method="POST" onsubmit="localStorage.removeItem('welcomeShown');" style="display: inline-flex; align-items: center; margin-left: 10px;">
                 <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                 <button type="submit" title="Cerrar Sesión" style="background: none; border: none; padding: 0; cursor: pointer; color: inherit; display: inline-flex; align-items: center;">
                     <i class="fas fa-sign-out-alt cj-h-icon-logout"></i>

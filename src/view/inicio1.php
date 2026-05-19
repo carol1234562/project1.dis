@@ -53,18 +53,15 @@
 
 <body id="inicio">
 
-    <div id="welcome-modal">
+    <?php if ($is_logged): ?>
+    <div id="welcome-modal" style="display: none;">
         <div class="modal-content">
             <h2 style="color:#D4AF37">¡BIENVENIDOS A NIGHTFEST!</h2>
             <p style="margin: 15px 0;">Proyecto por Johan Agreda y Carolina Solorzano.</p>
             <button id="close-welcome" class="btn-gold">ENTRAR</button>
         </div>
     </div>
-
-    <div id="cookie-banner">
-        <span>NightFest utiliza cookies para mejorar tu experiencia. ¿Aceptas?</span>
-        <button id="accept-cookies" class="btn-gold" style="padding: 5px 15px;">ACEPTAR</button>
-    </div>
+    <?php endif; ?>
 
     <?php include 'header.php'; ?>
 
@@ -169,15 +166,13 @@
 
     <script>
     $(document).ready(function() {
-        // 1. Gestión de Modales y Cookies
-        $('#close-welcome').click(function() { $('#welcome-modal').fadeOut(); });
-
-        if (!localStorage.getItem('cookiesAccepted')) {
-            $('#cookie-banner').css('display', 'flex');
+        // 1. Gestión del Modal de Bienvenidos
+        if (<?php echo $is_logged ? 'true' : 'false'; ?> && !localStorage.getItem('welcomeShown')) {
+            $('#welcome-modal').fadeIn();
         }
-        $('#accept-cookies').click(function() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            $('#cookie-banner').fadeOut();
+        $('#close-welcome').click(function() {
+            $('#welcome-modal').fadeOut();
+            localStorage.setItem('welcomeShown', 'true');
         });
 
         // 2. Inicialización de Sliders
