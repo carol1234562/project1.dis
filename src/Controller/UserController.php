@@ -1,24 +1,14 @@
 <?php
 
+require_once __DIR__ . '/../../model/Db.php';
 class UserController
 {
-    private mysqli $connection;
+    // Variable que guarda la conexión a la base de datos
+    private $connection;
 
     public function __construct()
-    {
-        // --- CONFIGURACIÓN DE CONEXIÓN ---
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db   = "nightfest";
-
-        $this->connection = new mysqli($host, $user, $pass, $db);
-
-        if ($this->connection->connect_error) {
-            die("Error de conexión: " . $this->connection->connect_error);
-        }
-
-        $this->connection->set_charset("utf8mb4");
+    {   // Usamos la clase Db.php para obtener la conexión PDO
+        $this->connection = Db::getConexion();
     }
 
     // --- MÉTODO: LOGIN ---
