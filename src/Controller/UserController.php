@@ -154,16 +154,15 @@ class UserController
     }
 
     // --- MÉTODO: OBTENER DATOS DE USUARIO ---
-    public function getUserData($id) {
-        $id = $this->connection->real_escape_string($id);
-        $sql = "SELECT * FROM usuarios WHERE id = '$id'";
-        $resultado = $this->connection->query($sql);
-        return $resultado->fetch_assoc();
-    }
+        public function getUserData($id) {
+            // Buscamos el usuario por su id usando PDO
+            $stmt = $this->connection->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        }
 
     // --- MÉTODO: ELIMINAR CUENTA ---
     public function deleteAccount($id, $adminCode = null) {
-        $id = $this->connection->real_escape_string($id);
         
         $user = $this->getUserData($id);
         if (!$user) {
@@ -186,9 +185,9 @@ class UserController
             }
         }
 
-        $sql = "DELETE FROM usuarios WHERE id = '$id'";
-        if ($this->connection->query($sql)) {
-            $this->logout(); 
+        $stmt = $this->connection->prepare("DELETE FROM usuarios WHERE id = ?");
+        if ($stmt->execute([$id])) {
+            $this->logout(true);
         } else {
             header("Location: ../View/perfil.php?error=no_se_pudo_borrar");
             exit();
