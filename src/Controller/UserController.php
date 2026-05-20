@@ -226,11 +226,23 @@ class UserController
         // Sincroniza el nombre en la sesión por si cambió
         if (session_status() === PHP_SESSION_NONE) session_start();
         $_SESSION['user_name'] = $nombre;
-        // Preparamos la consulta UPDATE con PDO
-        $stmt = $this->connection->prepare(
-            "UPDATE usuarios SET nombre = ?, foto_perfil = ? WHERE id = ?");
-        // Ejecutamos pasando los valores como parámetros seguros
-        return $stmt->execute([$nombre, $nombreFotoFinal, $userId]);
+        // Comprobamos si el usuario quiere cambiar la contraseña
+        $nueva_password = trim($datos['nueva_password'] ?? '');
+
+        if (!empty($nueva_password)) {
+            // Si ha escrito una contraseña nueva la hasheamos y actualizamos también
+            $passHash = password_hash($nueva_password, PASSWORD_BCRYPT);
+            $stmt = $this->connection->prepare(
+                "UPDATE usuarios SET nombre = ?, foto_perfil = ?, password = ? WHERE id = ?"
+            );
+            return $stmt->execute([$nombre, $nombreFotoFinal, $passHash, $userId]);
+        } else {
+            // Si no ha escrito nada solo actualizamos nombre y foto
+            $stmt = $this->connection->prepare(
+                "UPDATE usuarios SET nombre = ?, foto_perfil = ? WHERE id = ?"
+            );
+            return $stmt->execute([$nombre, $nombreFotoFinal, $userId]);
+        }
     }
 }
 
@@ -247,6 +259,20 @@ if ($action === 'logout') {
     if (isset($_SESSION['user_id'])) {
         $adminCode = $_POST['admin_code'] ?? null;
         $uc->deleteAccount($_SESSION['user_id'], $adminCode);
+    } else {
+        header("Location: ../View/login.php");
+    }
+} elseif ($action === 'actualizarPerfil') {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (isset($_SESSION['user_id'])) {
+        // Llamamos al método con los datos del formulario
+        $resultado = $uc->actualizarPerfil($_SESSION['user_id'], $_POST, $_FILES['foto'] ?? []);
+        if ($resultado) {
+            header("Location: ../View/perfil.php?success=Perfil actualizado correctamente");
+        } else {
+            header("Location: ../View/editar_perfil.php?error=No se pudo actualizar el perfil");
+        }
+        exit();
     } else {
         header("Location: ../View/login.php");
     }

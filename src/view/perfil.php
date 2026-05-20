@@ -104,6 +104,8 @@ if (!isset($_SESSION['user_id'])) {
                     <?php else: ?>
                         <button class="pf-btn" onclick="window.location.href='favoritos.php'">FAVORITOS</button>
                         <button class="pf-btn" onclick="window.location.href='reservas.php'">RESERVAS</button>
+                        <button class="pf-btn" onclick="window.location.href='editar_perfil.php'">EDITAR PERFIL</button>
+
                     <?php endif; ?>
                     
                     <button class="pf-btn">SEGURIDAD</button>
