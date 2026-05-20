@@ -194,12 +194,11 @@ class UserController
         }
     }
 
-    // --- MÉTODO: ACTUALIZAR PERFIL (Corregido de PDO a MySQLi uniforme) ---
+    // MÉTODO: ACTUALIZAR PERFIL
     public function actualizarPerfil($userId, $datos, $archivoFoto) {
-        $userId = $this->connection->real_escape_string($userId);
-        $nombre = $this->connection->real_escape_string(trim($datos['nombre']));
-        $email  = $this->connection->real_escape_string(trim($datos['email']));
-        
+
+        $nombre = trim($datos['nombre']);
+        $email  = trim($datos['email']);
         // 1. Obtener la foto actual
         $usuario = $this->getUserData($userId);
         $nombreFotoFinal = $usuario['foto_perfil'] ?? 'default.png';
@@ -223,16 +222,15 @@ class UserController
                 if (session_status() === PHP_SESSION_NONE) session_start();
                 $_SESSION['user_photo'] = $nombreFotoFinal;
             }
-        }
-
-        // 3. Actualizar base de datos usando MySQLi estándar
-        $sql = "UPDATE usuarios SET nombre = '$nombre', email = '$email', foto_perfil = '$nombreFotoFinal' WHERE id = '$userId'";
-        
-        // Sincronizar el nombre en la sesión por si cambió
+        }     
+        // Sincroniza el nombre en la sesión por si cambió
         if (session_status() === PHP_SESSION_NONE) session_start();
         $_SESSION['user_name'] = $nombre;
-
-        return $this->connection->query($sql);
+        // Preparamos la consulta UPDATE con PDO
+        $stmt = $this->connection->prepare(
+            "UPDATE usuarios SET nombre = ?, foto_perfil = ? WHERE id = ?");
+        // Ejecutamos pasando los valores como parámetros seguros
+        return $stmt->execute([$nombre, $nombreFotoFinal, $userId]);
     }
 }
 
