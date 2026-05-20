@@ -13,7 +13,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
 $ec = new EventController();
 
 // Configuración de paginación
-$eventos_por_pagina = 8;
+$eventos_por_pagina = 10;
 $pagina_actual = isset($_GET['p']) ? (int)$_GET['p'] : 1;
 if ($pagina_actual < 1) $pagina_actual = 1;
 $offset = ($pagina_actual - 1) * $eventos_por_pagina;

@@ -44,3 +44,67 @@
     background-color: #b8952e;
     transform: scale(1.05);
 }
+
+/* ======================================================
+   ESTILOS GENERALES DEL FOOTER
+   ====================================================== */
+.cj-f-main {
+    background-color: #111111; /* Negro suave */
+    border-top: 1px solid #222222;
+    padding: 50px 5% 30px;
+    text-align: center;
+    color: #666;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cj-f-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cj-f-networks {
+    margin-bottom: 25px;
+}
+
+.cj-f-networks a {
+    color: #D4AF37; /* Oro premium */
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cj-f-networks a:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.cj-f-links {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.cj-f-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cj-f-links a:hover {
+    color: #D4AF37;
+}
+
+.cj-f-links .cj-f-sep {
+    margin: 0 10px;
+    color: #333;
+}
+
+.cj-f-copy {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #444;
+    margin-top: 20px;
+}

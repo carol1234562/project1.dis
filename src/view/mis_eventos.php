@@ -11,7 +11,16 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
 }
 
 $ec = new EventController();
-$eventos = $ec->getAllEvents();
+
+// Configuración de paginación
+$eventos_por_pagina = 4;
+$pagina_actual = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+if ($pagina_actual < 1) $pagina_actual = 1;
+$offset = ($pagina_actual - 1) * $eventos_por_pagina;
+
+$eventos = $ec->getAllEvents($eventos_por_pagina, $offset);
+$total_registros = $ec->getTotalEventsCount();
+$total_paginas = ceil($total_registros / $eventos_por_pagina);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -92,6 +101,25 @@ $eventos = $ec->getAllEvents();
                 <p style="color: #ccc; grid-column: 1 / -1; text-align: center; font-size: 1.1rem; padding: 40px 0;">No hay eventos registrados en el sistema.</p>
             <?php endif; ?>
         </div>
+
+        <!-- Paginación -->
+        <?php if ($total_paginas > 1): ?>
+            <div class="paginacion-container" style="display: flex; justify-content: center; gap: 10px; margin-top: 40px; margin-bottom: 20px;">
+                <?php if ($pagina_actual > 1): ?>
+                    <a href="?p=<?php echo $pagina_actual - 1; ?>" class="pag-link"><i class="fas fa-angle-left"></i></a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
+                    <a href="?p=<?php echo $i; ?>" class="pag-link <?php echo ($i === $pagina_actual) ? 'active' : ''; ?>">
+                        <?php echo $i; ?>
+                    </a>
+                <?php endfor; ?>
+
+                <?php if ($pagina_actual < $total_paginas): ?>
+                    <a href="?p=<?php echo $pagina_actual + 1; ?>" class="pag-link"><i class="fas fa-angle-right"></i></a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </main>
 
     <?php include 'footer.php'; ?>

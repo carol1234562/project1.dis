@@ -60,6 +60,19 @@ $lng = !empty($evento['longitud']) ? $evento['longitud'] : 2.1734;
             <div class="img-container profile-shadow">
                 <img src="../assets/img/<?php echo $evento['imagen']; ?>" alt="Portada Evento">
             </div>
+            <?php if ($es_admin): ?>
+                <div class="admin-actions-detail" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px; width: 100%;">
+                    <a href="editar_evento.php?id=<?php echo $evento['id']; ?>" class="btn-ubicacion" style="background-color: #D4AF37; color: #000; border: none; padding: 10px 18px; font-weight: bold; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.8rem; white-space: nowrap; flex: 1; justify-content: center; margin: 0;">
+                        <i class="fas fa-edit"></i> EDITAR EVENTO
+                    </a>
+                    <form action="../Controller/EventController.php?action=delete" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este evento?');" style="display: inline-flex; flex: 1; margin: 0;">
+                        <input type="hidden" name="id" value="<?php echo $evento['id']; ?>">
+                        <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 18px; font-weight: bold; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; white-space: nowrap; width: 100%; justify-content: center; margin: 0;">
+                            <i class="fas fa-trash-alt"></i> ELIMINAR EVENTO
+                        </button>
+                    </form>
+                </div>
+            <?php endif; ?>
         </div>
 
         <div class="col-derecha">
@@ -80,20 +93,6 @@ $lng = !empty($evento['longitud']) ? $evento['longitud'] : 2.1734;
                 <button id="btn-recenter" class="btn-ubicacion">
                     <i class="fas fa-location-arrow"></i> MI UBICACIÓN
                 </button>
-
-                <?php if ($es_admin): ?>
-                    <div class="admin-actions-detail" style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="editar_evento.php?id=<?php echo $evento['id']; ?>" class="btn-ubicacion" style="background-color: #D4AF37; color: #000; border: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                            <i class="fas fa-edit"></i> EDITAR EVENTO
-                        </a>
-                        <form action="../Controller/EventController.php?action=delete" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este evento?');" style="display: inline-flex;">
-                            <input type="hidden" name="id" value="<?php echo $evento['id']; ?>">
-                            <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif;">
-                                <i class="fas fa-trash-alt"></i> ELIMINAR EVENTO
-                            </button>
-                        </form>
-                    </div>
-                <?php endif; ?>
             </div>
 
             <div id="map" class="mapa-container-mini"></div>

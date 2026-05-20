@@ -1,53 +1,318 @@
-/* ======================================================
-   NIGHTFEST - ESTILOS BASE Y RESPONSIVE
-   ====================================================== */
-   
-/* ======================================================
-   MEDIA QUERIES PARA TABLET (Min-width: 768px)
-   ====================================================== */
-@media (min-width: 768px) {
-    .nav-menu {
-        order: 2;
-        width: auto;
-        justify-content: center;
+/* =========================================================================
+   NIGHTFEST - SISTEMA GLOBAL RESPONSIVE GRADUADO
+   ========================================================================= */
+
+/* =========================================================================
+   1. TABLETAS GRANDES / IPAD PRO (Max-width: 1024px)
+   ========================================================================= */
+@media (max-width: 1024px) {
+    /* HEADER (IPAD PRO) */
+    .cj-h-main {
+        padding: 15px 3% !important;
+        gap: 15px !important;
+        height: auto !important;
+    }
+    .cj-h-nav ul {
+        gap: 12px !important;
+    }
+    .cj-h-nav ul li a {
+        font-size: 13px !important;
+    }
+    .cj-h-nav ul li a.cj-h-btn-gold {
+        display: none !important;
+    }
+    .cj-h-logo a img {
+        height: 70px !important;
+    }
+    .cj-h-controls {
+        gap: 10px !important;
+    }
+    .cj-h-avatar-wrap {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .cj-h-avatar-fallback {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 13px !important;
+    }
+    .cj-h-icon-add {
+        font-size: 1.1rem !important;
     }
 
+    /* INICIO / HERO (IPAD PRO) */
     .hero-container {
-        grid-template-columns: 2fr 1fr; /* Vuelve al diseño original de escritorio */
+        grid-template-columns: 1.8fr 1.2fr !important;
+        gap: 20px !important;
+    }
+    .section-title {
+        font-size: 2.2rem !important;
     }
 
-    .hero-sidebar {
-        grid-template-columns: 1fr; /* Columna vertical al lado del principal */
+    /* VISTAS EN CASCADA (Discotecas y Publicaciones) */
+    .evento-row {
+        padding: 16px 22px !important;
+        gap: 18px !important;
+    }
+    .evento-row .img-container {
+        width: 80px !important;
+        height: 80px !important;
+        margin-right: 15px !important;
+    }
+    .info-principal h3 {
+        font-size: 1.25rem !important;
+    }
+    .status-badge, .status-disponible {
+        padding: 5px 12px !important;
+        font-size: 0.65rem !important;
     }
 
-    #map-container {
-        height: 500px;
+    /* DETALLE DE EVENTO (Infoevento) */
+    .evento-row-split {
+        gap: 25px !important;
+        padding: 30px 20px !important;
+    }
+    .col-izquierda .img-container {
+        height: 350px !important;
+    }
+    .section-title-line {
+        font-size: 2.4rem !important;
     }
 
-    .nav-menu a {
-        font-size: 0.9rem;
+    /* PERFIL (IPAD PRO) */
+    .pf-options-grid {
+        gap: 15px !important;
+    }
+
+    /* FOOTER COMPACTO */
+    .cj-f-main {
+        padding: 30px 5% 20px !important;
+        margin-top: 40px !important;
+    }
+    .cj-f-networks {
+        margin-bottom: 15px !important;
+    }
+    .cj-f-networks a {
+        font-size: 1.3rem !important;
+        margin: 0 12px !important;
+    }
+    .cj-f-links {
+        font-size: 0.8rem !important;
+        margin-bottom: 12px !important;
+    }
+    .cj-f-copy {
+        font-size: 0.75rem !important;
+        margin-top: 12px !important;
     }
 }
 
-/* ======================================================
-   MEDIA QUERIES PARA MÓVILES MUY PEQUEÑOS
-   ====================================================== */
+/* =========================================================================
+   2. TABLETAS ESTÁNDAR Y PANTALLAS MEDIANAS (Max-width: 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+    /* HEADER APILADO */
+    .cj-h-main {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 15px !important;
+    }
+    .cj-h-logo a img {
+        height: 75px !important;
+    }
+    .cj-h-nav ul {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+    }
+    .cj-h-controls {
+        margin-right: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    .cj-h-avatar-wrap {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .cj-h-avatar-fallback {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 13px !important;
+    }
+    .cj-h-icon-add {
+        font-size: 1.1rem !important;
+    }
+
+    /* INICIO / HERO APILADO */
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .hero-sidebar {
+        grid-template-columns: 1fr 1fr !important;
+        display: grid !important;
+    }
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+
+    /* DETALLE DE EVENTO (APILADO) */
+    .evento-row-split {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    .col-izquierda, .col-derecha {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .col-izquierda .img-container {
+        height: 280px !important;
+    }
+    .section-title-line {
+        font-size: 2rem !important;
+    }
+    .mapa-container-mini {
+        height: 200px !important;
+    }
+
+    /* GESTIÓN DE EVENTOS (Admin Grid) */
+    .admin-header-box {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .admin-header-box .section-title-line {
+        text-align: center !important;
+    }
+
+    /* MI PERFIL */
+    .pf-card-header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+    .pf-user-info {
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .pf-options-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* FOOTER AÚN MÁS COMPACTO */
+    .cj-f-main {
+        padding: 20px 5% !important;
+    }
+    .cj-f-networks a {
+        font-size: 1.1rem !important;
+        margin: 0 10px !important;
+    }
+    .cj-f-links {
+        font-size: 0.75rem !important;
+    }
+    .cj-f-copy {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* =========================================================================
+   3. DISPOSITIVOS MÓVILES (Max-width: 576px)
+   ========================================================================= */
+@media (max-width: 576px) {
+    /* HEADER ULTRA-COMPACTO ADMIN */
+    .cj-h-logo a img {
+        height: 65px !important;
+    }
+    .cj-h-nav ul {
+        gap: 8px !important;
+    }
+    .cj-h-nav ul li a {
+        font-size: 12px !important;
+    }
+    .cj-h-controls {
+        gap: 8px !important;
+    }
+    .cj-h-avatar-wrap {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .cj-h-avatar-fallback {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+    }
+    .cj-h-icon-add {
+        font-size: 1rem !important;
+    }
+
+    /* LA CASCADA SE APILA EN TARJETA VERTICAL PARA MÓVIL */
+    .evento-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: left !important;
+        padding: 20px !important;
+        gap: 15px !important;
+    }
+    .evento-row .img-container {
+        margin-right: 0 !important;
+        width: 100% !important;
+        height: 180px !important;
+        border-radius: 10px !important;
+    }
+    .info-principal h3 {
+        font-size: 1.25rem !important;
+    }
+    .estado-accion {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding-top: 15px !important;
+        margin-top: 10px !important;
+    }
+    .admin-row-actions {
+        justify-content: flex-end !important;
+    }
+}
+
+/* =========================================================================
+   4. PANTALLAS MÓVILES MUY CHICAS (Max-width: 480px)
+   ========================================================================= */
 @media (max-width: 480px) {
     .hero-sidebar {
-        grid-template-columns: 1fr; /* Todo en una sola columna */
+        grid-template-columns: 1fr !important;
+    }
+
+    /* FORMULARIOS */
+    .form-container-custom {
+        padding: 25px 15px !important;
+    }
+    .form-title {
+        font-size: 1.2rem !important;
+    }
+    .input-group-custom input, .input-group-custom select {
+        padding: 10px !important;
+        font-size: 0.85rem !important;
+    }
+    .submit-btn-custom {
+        padding: 12px !important;
+        font-size: 0.9rem !important;
     }
     
-    .section-title {
-        font-size: 1.5rem;
-        text-align: center;
+    /* MODALES DE CONFIRMACIÓN */
+    .modal-content {
+        width: 95% !important;
+        padding: 20px 15px !important;
     }
-
-    .auth-buttons {
-        gap: 5px;
+    .modal-actions {
+        flex-direction: column !important;
+        gap: 10px !important;
     }
-
-    .btn-login, .btn-register {
-        padding: 8px 12px;
-        font-size: 0.7rem;
+    .modal-btn-confirm, .modal-btn-cancel {
+        width: 100% !important;
     }
 }

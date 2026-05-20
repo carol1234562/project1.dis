@@ -80,13 +80,19 @@ body {
     max-width: 48%;
 }
 
+.col-izquierda .img-container {
+    width: 100%;
+    height: 420px; /* Altura fija uniforme para evitar que portadas con diferentes relaciones de aspecto deformen la interfaz */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
 .col-izquierda .img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
     display: block;
-    border: 1px solid #333;
 }
 
 .col-derecha {

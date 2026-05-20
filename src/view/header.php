@@ -29,7 +29,11 @@ $inicial = "U";
 if ($is_logged && isset($_SESSION['user_name'])) {
     $inicial = strtoupper(substr($_SESSION['user_name'], 0, 1));
 }
-?><link rel="stylesheet" href="../assets/css/header.css">
+?><?php
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
+<link rel="stylesheet" href="../assets/css/header.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
 
 <header class="cj-h-main">
     <div class="cj-h-logo">
@@ -40,12 +44,12 @@ if ($is_logged && isset($_SESSION['user_name'])) {
 
     <nav class="cj-h-nav">
         <ul>
-            <li><a href="inicio1.php" class="active">HOME</a></li>
-            <li><a href="destacados_page.php">DESTACADOS</a></li>
-            <li><a href="<?= $is_logged ? 'discotecas.php' : 'login.php' ?>">DISCOTECAS</a></li>
-            <li><a href="<?= $is_logged ? 'bares.php' : 'login.php' ?>">BARES</a></li>
-            <li><a href="<?= $is_logged ? 'festivales.php' : 'login.php' ?>">FESTIVALES</a></li>
-            <li><a href="<?= $is_logged ? 'restaurantes.php' : 'login.php' ?>">RESTAURANTES</a></li>
+            <li><a href="inicio1.php" class="<?= $current_page === 'inicio1.php' ? 'active' : '' ?>">HOME</a></li>
+            <li><a href="destacados_page.php" class="<?= $current_page === 'destacados_page.php' ? 'active' : '' ?>">DESTACADOS</a></li>
+            <li><a href="<?= $is_logged ? 'discotecas.php' : 'login.php' ?>" class="<?= in_array($current_page, ['discotecas.php', 'infoevento.php', 'mis_publicaciones.php']) ? 'active' : '' ?>">DISCOTECAS</a></li>
+            <li><a href="<?= $is_logged ? 'bares.php' : 'login.php' ?>" class="<?= $current_page === 'bares.php' ? 'active' : '' ?>">BARES</a></li>
+            <li><a href="<?= $is_logged ? 'festivales.php' : 'login.php' ?>" class="<?= $current_page === 'festivales.php' ? 'active' : '' ?>">FESTIVALES</a></li>
+            <li><a href="<?= $is_logged ? 'restaurantes.php' : 'login.php' ?>" class="<?= $current_page === 'restaurantes.php' ? 'active' : '' ?>">RESTAURANTES</a></li>
             <?php if ($es_admin): ?>
                 <li><a href="mis_eventos.php" class="cj-h-btn-gold">MIS EVENTOS</a></li>
             <?php endif; ?>

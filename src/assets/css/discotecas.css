@@ -43,28 +43,41 @@ body {
 
 /* La Fila Gris (Estilo imagen image_3c13f4.png) */
 .evento-row {
-    background-color: #333; /* Gris oscuro de la captura */
-    border-radius: 15px;
+    background: linear-gradient(135deg, #181818 0%, #111111 100%);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-radius: 16px;
     display: flex;
     align-items: center;
-    padding: 15px 25px;
+    padding: 20px 30px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease, 
+                background 0.3s ease;
 }
 
 .evento-row:hover {
-    background-color: #3d3d3d;
-    transform: scale(1.01);
+    background: linear-gradient(135deg, #222222 0%, #181818 100%);
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
 }
 
 /* Imagen miniatura */
 .img-container {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
     overflow: hidden;
-    margin-right: 20px;
+    margin-right: 25px;
     flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.evento-row:hover .img-container {
+    transform: scale(1.05);
 }
 
 .img-container img {
@@ -80,50 +93,73 @@ body {
 
 .fecha-badge {
     color: #D4AF37;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    display: block;
-    margin-bottom: 5px;
+    display: inline-block;
+    margin-bottom: 6px;
+    background: rgba(212, 175, 55, 0.08);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
 }
 
 .info-principal h3 {
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
 }
 
 .info-principal p {
-    color: #bbb;
-    font-size: 0.85rem;
+    color: #aaa;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .info-principal i {
     color: #D4AF37;
-    margin-right: 5px;
 }
 
 /* Botón de Estado a la derecha */
 .estado-accion {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .status-disponible {
-    border: 1px solid #D4AF37;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     color: #D4AF37;
-    padding: 4px 12px;
-    border-radius: 5px;
-    font-size: 0.65rem;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.evento-row:hover .status-disponible {
+    background: #D4AF37;
+    color: #000;
+    border-color: #D4AF37;
 }
 
 .estado-accion i {
-    color: #666;
+    color: #555;
+    font-size: 1.1rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.evento-row:hover .estado-accion i {
+    color: #D4AF37;
+    transform: translateX(3px);
 }
 
 /* ======================================================
