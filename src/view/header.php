@@ -222,12 +222,16 @@ if ($is_logged && isset($_SESSION['user_name'])) {
                     if (isset($_SESSION['user_photo']) && !empty($_SESSION['user_photo']) && $_SESSION['user_photo'] !== 'default.png'): 
                         $archivo_foto = trim($_SESSION['user_photo']);
                     ?>
-                        <img src="../assets/img/uploads/<?= htmlspecialchars($archivo_foto, ENT_QUOTES, 'UTF-8') ?>" 
-                             alt="Perfil" 
-                             class="cj-h-avatar-img"
-                             onerror="this.style.display='none'; document.getElementById('cj-fallback-emergencia').style.display='flex';">
-                        
-                        <div id="cj-fallback-emergencia" class="cj-h-avatar-fallback" style="display: none;"><?= htmlspecialchars($inicial, ENT_QUOTES, 'UTF-8') ?></div>
+                    <?php
+                    // Comprobamos en que carpeta esta la foto
+                    $ruta_foto = file_exists("../assets/img/uploads/" . $archivo_foto) 
+                        ? "../assets/img/uploads/" . $archivo_foto 
+                        : "../assets/img/" . $archivo_foto;
+                    ?>
+                    <img src="<?= htmlspecialchars($ruta_foto, ENT_QUOTES, 'UTF-8') ?>"
+                    alt="Perfil" 
+                    class="cj-h-avatar-img"
+                    onerror="this.style.display='none';">
                         
                     <?php else: ?>
                         <div class="cj-h-avatar-fallback"><?= htmlspecialchars($inicial, ENT_QUOTES, 'UTF-8') ?></div>
