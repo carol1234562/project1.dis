@@ -32,10 +32,21 @@ if (isset($_SESSION['user_id'])) {
             <h2 style="text-align:center; color:#D4AF37; margin-bottom:25px; font-size:1rem; letter-spacing:2px; text-transform:uppercase;">Registro Estándar</h2>
 
             <?php if (isset($_GET['error'])): ?>
-                <p class="error-msg">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <?= htmlspecialchars($_GET['error']) ?>
-                </p>
+                <div style="background: rgba(255,0,0,0.1); border: 1px solid #e74c3c; border-radius: 6px; padding: 12px 15px; margin-bottom: 15px; text-align: center;">
+                    <p style="color: #e74c3c; margin: 0; font-size: 0.9rem;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <?= htmlspecialchars($_GET['error']) ?>
+                    </p>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['success'])): ?>
+                <div style="background: rgba(46,204,113,0.1); border: 1px solid #2ecc71; border-radius: 6px; padding: 12px 15px; margin-bottom: 15px; text-align: center;">
+                    <p style="color: #2ecc71; margin: 0; font-size: 0.9rem;">
+                        <i class="fas fa-check-circle"></i>
+                        <?= htmlspecialchars($_GET['success']) ?>
+                    </p>
+                </div>
             <?php endif; ?>
 
             <div class="input-group">

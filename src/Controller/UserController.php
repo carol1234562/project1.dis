@@ -101,11 +101,12 @@ class UserController
 
             //if ($stmt->execute()) {
             $passHash = password_hash($pass, PASSWORD_BCRYPT); // Convierte la contraseña en un hash seguro antes de guardarla
-
-
-            if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
-                header("Location: ../view/login.php?success= Cuenta creada correctamente");
-            } else {
+            try {
+                if ($stmt->execute([$nombre, $email, $passHash, $rol, $nombre_foto])) {
+                    header("Location: ../view/login.php?success=Cuenta creada correctamente");
+                }
+            } catch (PDOException $e) {
+                // Si el email ya existe redirigimos con mensaje de error
                 header("Location: ../View/registro_" . $rol . ".php?error=El correo ya esta registrado");
             }
             exit();
@@ -154,16 +155,15 @@ class UserController
     }
 
     // --- MÉTODO: OBTENER DATOS DE USUARIO ---
-    public function getUserData($id) {
-        $id = $this->connection->real_escape_string($id);
-        $sql = "SELECT * FROM usuarios WHERE id = '$id'";
-        $resultado = $this->connection->query($sql);
-        return $resultado->fetch_assoc();
-    }
+        public function getUserData($id) {
+            // Buscamos el usuario por su id usando PDO
+            $stmt = $this->connection->prepare("SELECT * FROM usuarios WHERE id = ?");
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        }
 
     // --- MÉTODO: ELIMINAR CUENTA ---
     public function deleteAccount($id, $adminCode = null) {
-        $id = $this->connection->real_escape_string($id);
         
         $user = $this->getUserData($id);
         if (!$user) {
@@ -186,21 +186,20 @@ class UserController
             }
         }
 
-        $sql = "DELETE FROM usuarios WHERE id = '$id'";
-        if ($this->connection->query($sql)) {
-            $this->logout(); 
+        $stmt = $this->connection->prepare("DELETE FROM usuarios WHERE id = ?");
+        if ($stmt->execute([$id])) {
+            $this->logout(true);
         } else {
             header("Location: ../View/perfil.php?error=no_se_pudo_borrar");
             exit();
         }
     }
 
-    // --- MÉTODO: ACTUALIZAR PERFIL (Corregido de PDO a MySQLi uniforme) ---
+    // MÉTODO: ACTUALIZAR PERFIL
     public function actualizarPerfil($userId, $datos, $archivoFoto) {
-        $userId = $this->connection->real_escape_string($userId);
-        $nombre = $this->connection->real_escape_string(trim($datos['nombre']));
-        $email  = $this->connection->real_escape_string(trim($datos['email']));
-        
+
+        $nombre = trim($datos['nombre']);
+        $email  = trim($datos['email']);
         // 1. Obtener la foto actual
         $usuario = $this->getUserData($userId);
         $nombreFotoFinal = $usuario['foto_perfil'] ?? 'default.png';
@@ -224,16 +223,27 @@ class UserController
                 if (session_status() === PHP_SESSION_NONE) session_start();
                 $_SESSION['user_photo'] = $nombreFotoFinal;
             }
-        }
-
-        // 3. Actualizar base de datos usando MySQLi estándar
-        $sql = "UPDATE usuarios SET nombre = '$nombre', email = '$email', foto_perfil = '$nombreFotoFinal' WHERE id = '$userId'";
-        
-        // Sincronizar el nombre en la sesión por si cambió
+        }     
+        // Sincroniza el nombre en la sesión por si cambió
         if (session_status() === PHP_SESSION_NONE) session_start();
         $_SESSION['user_name'] = $nombre;
+        // Comprobamos si el usuario quiere cambiar la contraseña
+        $nueva_password = trim($datos['nueva_password'] ?? '');
 
-        return $this->connection->query($sql);
+        if (!empty($nueva_password)) {
+            // Si ha escrito una contraseña nueva la hasheamos y actualizamos también
+            $passHash = password_hash($nueva_password, PASSWORD_BCRYPT);
+            $stmt = $this->connection->prepare(
+                "UPDATE usuarios SET nombre = ?, foto_perfil = ?, password = ? WHERE id = ?"
+            );
+            return $stmt->execute([$nombre, $nombreFotoFinal, $passHash, $userId]);
+        } else {
+            // Si no ha escrito nada solo actualizamos nombre y foto
+            $stmt = $this->connection->prepare(
+                "UPDATE usuarios SET nombre = ?, foto_perfil = ? WHERE id = ?"
+            );
+            return $stmt->execute([$nombre, $nombreFotoFinal, $userId]);
+        }
     }
 }
 
@@ -250,6 +260,20 @@ if ($action === 'logout') {
     if (isset($_SESSION['user_id'])) {
         $adminCode = $_POST['admin_code'] ?? null;
         $uc->deleteAccount($_SESSION['user_id'], $adminCode);
+    } else {
+        header("Location: ../View/login.php");
+    }
+} elseif ($action === 'actualizarPerfil') {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (isset($_SESSION['user_id'])) {
+        // Llamamos al método con los datos del formulario
+        $resultado = $uc->actualizarPerfil($_SESSION['user_id'], $_POST, $_FILES['foto'] ?? []);
+        if ($resultado) {
+            header("Location: ../View/perfil.php?success=Perfil actualizado correctamente");
+        } else {
+            header("Location: ../View/editar_perfil.php?error=No se pudo actualizar el perfil");
+        }
+        exit();
     } else {
         header("Location: ../View/login.php");
     }

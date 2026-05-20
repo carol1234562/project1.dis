@@ -31,8 +31,17 @@ if (!$user) {
     header("Location: login.php");
     exit();
 }
-$foto_usuario = $user['foto_profile'] ?? $user['foto_perfil']; 
+$foto_usuario = $user['foto_perfil'];
 $carpeta_img = '../assets/img/';
+
+// Comprobamos si la foto está en uploads o en la carpeta principal
+if (file_exists('../assets/img/uploads/' . $foto_usuario)) {
+    $foto_url = '../assets/img/uploads/' . $foto_usuario;
+} elseif (file_exists('../assets/img/' . $foto_usuario)) {
+    $foto_url = '../assets/img/' . $foto_usuario;
+} else {
+    $foto_url = '../assets/img/default.jpg';
+}
 
 // Variables de usuario
 $nombre   = $user['nombre'];
@@ -42,15 +51,6 @@ $es_admin = ($rol === 'admin');
 
 // Inicial para el avatar circular
 $inicial  = strtoupper(substr(trim($nombre), 0, 1));
-
-// CORRECCIÓN: Validar si existe el archivo físico en la carpeta
-if (!empty($foto_usuario) && file_exists($carpeta_img . $foto_usuario)) {
-    $foto_url = $carpeta_img . $foto_usuario;
-} else {
-    // Si en la BD dice 'default.png' pero tu archivo físico es 'default.jpg' (o viceversa)
-    // Nos aseguramos de apuntar al archivo real que tienes en tu carpeta de assets
-    $foto_url = $carpeta_img . 'default.jpg'; 
-}
 
 include_once 'header.php'; 
 
@@ -98,14 +98,16 @@ if (!isset($_SESSION['user_id'])) {
             <div class="pf-card-options">
                 <h4 class="pf-options-title">Opciones de Cuenta</h4>
                 <div class="pf-options-grid">
-                    <?php if ($es_admin): ?>
-                        <button class="pf-btn pf-btn-admin" onclick="window.location.href='admin_panel.php'">PANEL ADMIN</button>
-                        <button class="pf-btn" onclick="window.location.href='mis_publicaciones.php'">PUBLICACIONES</button>
-                    <?php else: ?>
-                        <button class="pf-btn" onclick="window.location.href='favoritos.php'">FAVORITOS</button>
-                        <button class="pf-btn" onclick="window.location.href='reservas.php'">RESERVAS</button>
-                    <?php endif; ?>
-                    
+            <?php if ($es_admin): ?>
+                <button class="pf-btn pf-btn-admin" onclick="window.location.href='admin_panel.php'">PANEL ADMIN</button>
+                <button class="pf-btn" onclick="window.location.href='mis_publicaciones.php'">PUBLICACIONES</button>
+                <button class="pf-btn" onclick="window.location.href='editar_perfil.php'">EDITAR PERFIL</button>
+            <?php else: ?>
+                <button class="pf-btn" onclick="window.location.href='favoritos.php'">FAVORITOS</button>
+                <button class="pf-btn" onclick="window.location.href='reservas.php'">RESERVAS</button>
+                <button class="pf-btn" onclick="window.location.href='editar_perfil.php'">EDITAR PERFIL</button>
+            <?php endif; ?>
+                                
                     <button class="pf-btn">SEGURIDAD</button>
                     <form action="../Controller/UserController.php?action=logout" method="POST" onsubmit="localStorage.removeItem('welcomeShown');" style="display: contents;">
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
@@ -125,13 +127,11 @@ if (!isset($_SESSION['user_id'])) {
     <div id="delete-account-modal" class="modal-overlay">
         <div class="modal-content <?php echo $es_admin ? 'modal-admin' : 'modal-standard'; ?>">
             <div class="modal-header">
-                <i class="fa-solid fa-triangle-exclamation modal-icon"></i>
                 <h3>Eliminar Cuenta</h3>
             </div>
             <div class="modal-body">
                 <?php if ($es_admin): ?>
                     <p class="warning-text"><strong>¡ADVERTENCIA DE ADMINISTRADOR!</strong></p>
-                    <p>Estás a punto de eliminar de forma permanente una cuenta de <strong>ADMINISTRADOR</strong>. Esta acción es crítica y no se puede deshacer.</p>
                     <p class="instruction-text">Para confirmar la eliminación, introduce el código de seguridad de administrador:</p>
                     
                     <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
@@ -145,9 +145,7 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                     </form>
                 <?php else: ?>
-                    <p>¿Estás seguro de que deseas eliminar tu cuenta de <strong>NightFest</strong>?</p>
-                    <p class="warning-text">Esta acción es irreversible y borrará toda tu información de perfil de forma permanente.</p>
-                    
+                    <p>¿Estás seguro de que deseas eliminar tu cuenta de <strong>NightFest</strong>?</p>                    
                     <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
                         <div class="modal-actions">
                             <button type="button" class="pf-btn modal-btn-cancel" id="close-delete-modal">CANCELAR</button>
