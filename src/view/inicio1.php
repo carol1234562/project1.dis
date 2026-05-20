@@ -166,16 +166,18 @@
 
     <script>
     $(document).ready(function() {
-        // 1. Gestión del Modal de Bienvenidos
+        // 1. Gestión del Modal de Bienvenidos (Transición Suave)
         if (<?php echo $is_logged ? 'true' : 'false'; ?> && !localStorage.getItem('welcomeShown')) {
-            $('#welcome-modal').fadeIn();
+            $('#welcome-modal').css({ opacity: 0, display: 'flex' }).animate({ opacity: 1 }, 600);
         }
         $('#close-welcome').click(function() {
-            $('#welcome-modal').fadeOut();
-            localStorage.setItem('welcomeShown', 'true');
+            $('#welcome-modal').animate({ opacity: 0 }, 400, function() {
+                $(this).hide();
+                localStorage.setItem('welcomeShown', 'true');
+            });
         });
 
-        // 2. Inicialización de Sliders
+        // 2. Inicialización de Sliders con Flechas Personalizadas Premium
         $('.slider-galeria').slick({
             dots: true,
             infinite: true,
@@ -183,14 +185,36 @@
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: '<button type="button" class="slick-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>',
             responsive: [
                 { breakpoint: 768, settings: { slidesToShow: 1 } }
             ]
         });
 
-        // 3. Inicialización del Mapa
+        // 3. Scroll Horizontal con Rueda del Ratón para Grids de Locales (Efecto Premium)
+        $('.clubs-grid').on('wheel', function(e) {
+            e.preventDefault();
+            const delta = e.originalEvent.deltaY || e.originalEvent.detail;
+            this.scrollLeft += delta * 1.5;
+        });
+
+        // 4. Efecto de Scroll Reveal (Animación de entrada para secciones)
+        const revealSections = () => {
+            const scrollPos = $(window).scrollTop() + $(window).height() - 80;
+            $('section').each(function() {
+                if (scrollPos > $(this).offset().top) {
+                    $(this).addClass('section-visible');
+                }
+            });
+        };
+        $(window).on('scroll resize', revealSections);
+        setTimeout(revealSections, 100); // Llamada inicial con retardo sutil
+
+        // 5. Inicialización del Mapa
         const initMap = () => {
-            const map = L.map('map-container').setView([41.3851, 2.1734], 14);
+            const map = L.map('map-container').setView([41.3900, 2.1650], 13.5);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; CARTO'
@@ -201,13 +225,28 @@
             const locales = [
                 { name: "SUTTON", lat: 41.3965, lng: 2.1523, type: "Discoteca" },
                 { name: "PACHA", lat: 41.3831, lng: 2.1973, type: "Discoteca" },
-                { name: "OPIUM", lat: 41.3842, lng: 2.1965, type: "Discoteca" }
+                { name: "SAOKO", lat: 41.3920, lng: 2.1550, type: "Discoteca" },
+                { name: "REY DE COPAS", lat: 41.4025, lng: 2.1743, type: "Bar" },
+                { name: "NEON BAR", lat: 41.3801, lng: 2.1702, type: "Bar" },
+                { name: "OPIUM BAR", lat: 41.3845, lng: 2.1960, type: "Bar" },
+                { name: "DURO FESTIVAL", lat: 41.3850, lng: 2.1620, type: "Festival" },
+                { name: "SONAR 2026", lat: 41.3530, lng: 2.1280, type: "Festival" },
+                { name: "BARCELONA ROCK", lat: 41.3650, lng: 2.1500, type: "Festival" },
+                { name: "TAGLIATELLA", lat: 41.3980, lng: 2.1610, type: "Restaurante" },
+                { name: "HARD ROCK CAFE", lat: 41.3870, lng: 2.1700, type: "Restaurante" },
+                { name: "ABaC", lat: 41.4134, lng: 2.1388, type: "Restaurante" }
             ];
 
             locales.forEach(loc => {
                 L.marker([loc.lat, loc.lng], { icon: goldIcon })
                  .addTo(map)
-                 .bindPopup(`<b style="color:#D4AF37">${loc.name}</b><br>${loc.type}<br><a href="reservar.php" class="btn" style="font-size:10px; padding:4px">RESERVAR</a>`);
+                 .bindPopup(`
+                     <div style="font-family:'Montserrat', sans-serif; text-align:center; padding:5px;">
+                         <b style="color:#D4AF37; font-size:13px; text-transform:uppercase;">${loc.name}</b>
+                         <div style="color:#aaa; font-size:11px; margin:4px 0 8px;">${loc.type}</div>
+                         <a href="reservar.php" class="btn" style="font-size:10px; padding:6px 12px; display:inline-block; border-radius:3px;">RESERVAR</a>
+                     </div>
+                 `);
             });
 
             // Botón Recenter
@@ -216,7 +255,7 @@
                     navigator.geolocation.getCurrentPosition(pos => {
                         const coords = [pos.coords.latitude, pos.coords.longitude];
                         map.flyTo(coords, 15);
-                        L.circleMarker(coords, { color: '#D4AF37', radius: 10 }).addTo(map).bindPopup("Estás aquí").openPopup();
+                        L.circleMarker(coords, { color: '#D4AF37', fillColor: '#D4AF37', fillOpacity: 0.4, radius: 12 }).addTo(map).bindPopup("Estás aquí").openPopup();
                     }, () => {
                         alert("No se pudo obtener tu ubicación actual. Revisa los permisos de tu navegador.");
                     });

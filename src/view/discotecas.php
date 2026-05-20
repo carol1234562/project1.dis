@@ -1,10 +1,11 @@
 <?php
 require_once '../Model/seguridad.php';
-$conexion = new mysqli("localhost", "root", "", "NightFest");
+require_once '../Controller/EventController.php';
 
-if ($conexion->connect_error) {
-    die("Error de conexión");
-}
+if (session_status() === PHP_SESSION_NONE) session_start();
+$es_admin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
+
+$ec = new EventController();
 
 $eventos_por_pagina = 10;
 
@@ -13,16 +14,8 @@ if ($pagina_actual < 1) $pagina_actual = 1;
 
 $offset = ($pagina_actual - 1) * $eventos_por_pagina;
 
-$sql = "SELECT * FROM eventos 
-        WHERE fecha_evento >= CURDATE() 
-        ORDER BY fecha_evento ASC 
-        LIMIT $eventos_por_pagina OFFSET $offset";
-
-$resultado = $conexion->query($sql);
-
-$conteo_query = "SELECT COUNT(*) as total FROM eventos WHERE fecha_evento >= CURDATE()";
-$conteo_res = $conexion->query($conteo_query);
-$total_registros = ($conteo_res) ? $conteo_res->fetch_assoc()['total'] : 0;
+$resultado = $ec->getAllEvents($eventos_por_pagina, $offset);
+$total_registros = $ec->getTotalEventsCount();
 $total_paginas = ceil($total_registros / $eventos_por_pagina);
 ?>
 
@@ -35,15 +28,14 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/discotecas.css">
-
 </head>
 <body id="discotecas-page">
 
-        <?php include 'header.php';
-        if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-} ?>
+    <?php include 'header.php';
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    } ?>
 
     <main class="container">
         <div class="section-header">
@@ -51,8 +43,8 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
         </div>
 
         <div class="eventos-cascada">
-            <?php if ($resultado && $resultado->num_rows > 0): ?>
-                <?php while($row = $resultado->fetch_assoc()): ?>
+            <?php if (!empty($resultado)): ?>
+                <?php foreach ($resultado as $row): ?>
                     <div class="evento-row" onclick="window.location.href='infoevento.php?id=<?php echo $row['id']; ?>'">
                         <div class="img-container">
                             <img src="../assets/img/<?php echo $row['imagen']; ?>" alt="Evento">
@@ -64,12 +56,22 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
                             <h3><?php echo htmlspecialchars($row['artista']); ?></h3>
                             <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($row['ubicacion']); ?> • <?php echo htmlspecialchars($row['localidad']); ?></p>
                         </div>
-                        <div class="estado-accion">
+                        <div class="estado-accion" style="display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 8px;">
                             <span class="status-disponible"><?php echo $row['estado']; ?></span>
-                            <i class="fas fa-chevron-right"></i>
+                            <?php if ($es_admin): ?>
+                                <div class="admin-actions" style="display: flex; gap: 15px;">
+                                    <a href="editar_evento.php?id=<?php echo $row['id']; ?>" class="btn-edit-mini" onclick="event.stopPropagation();" style="color: #D4AF37; font-size: 1.1rem;" title="Editar"><i class="fas fa-edit"></i></a>
+                                    <form action="../Controller/EventController.php?action=delete" method="POST" onsubmit="event.stopPropagation(); return confirm('¿Estás seguro de que deseas eliminar este evento?');" style="display: inline;">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <button type="submit" class="btn-delete-mini" style="background: none; border: none; color: #ff4d4d; cursor: pointer; padding: 0; font-size: 1.1rem;" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </div>
+                            <?php else: ?>
+                                <i class="fas fa-chevron-right"></i>
+                            <?php endif; ?>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             <?php else: ?>
                 <p class="no-data">No hay discotecas con eventos próximos.</p>
             <?php endif; ?>
@@ -87,7 +89,6 @@ $total_paginas = ceil($total_registros / $eventos_por_pagina);
     </main>
 
     <?php include 'footer.php'; ?>
-
 
 </body>
 </html>

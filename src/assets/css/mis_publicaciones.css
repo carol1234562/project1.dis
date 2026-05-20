@@ -1,22 +1,5 @@
-/* ======================================================
-   1. RESET Y ESTILOS BASE
-   ====================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Estilos para mis_publicaciones.php */
 
-body {
-    background-color: #000; /* Fondo negro puro */
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-}
-
-/* ======================================================
-   3. CONTENIDO DE EVENTOS (FILAS GRISES)
-   ====================================================== */
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -27,21 +10,23 @@ body {
     margin-bottom: 30px;
     border-left: 4px solid #D4AF37;
     padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .section-title-line {
     font-size: 1.8rem;
     letter-spacing: 2px;
+    margin: 0;
 }
 
-/* Contenedor de las filas */
 .eventos-cascada {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* La Fila Gris (Estilo imagen image_3c13f4.png) */
 .evento-row {
     background: linear-gradient(135deg, #181818 0%, #111111 100%);
     border: 1px solid rgba(212, 175, 55, 0.12);
@@ -64,7 +49,6 @@ body {
     box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
 }
 
-/* Imagen miniatura */
 .img-container {
     width: 90px;
     height: 90px;
@@ -86,7 +70,6 @@ body {
     object-fit: cover;
 }
 
-/* Información del Artista y Lugar */
 .info-principal {
     flex-grow: 1;
 }
@@ -125,14 +108,13 @@ body {
     color: #D4AF37;
 }
 
-/* Botón de Estado a la derecha */
 .estado-accion {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.status-disponible {
+.status-badge {
     background: rgba(212, 175, 55, 0.08);
     border: 1px solid rgba(212, 175, 55, 0.3);
     color: #D4AF37;
@@ -145,31 +127,67 @@ body {
     transition: all 0.3s;
 }
 
-.evento-row:hover .status-disponible {
+.status-badge.status-agotado {
+    background: rgba(255, 77, 77, 0.08);
+    border-color: rgba(255, 77, 77, 0.3);
+    color: #ff4d4d;
+}
+
+.status-badge.status-proximamente {
+    background: rgba(241, 196, 15, 0.08);
+    border-color: rgba(241, 196, 15, 0.3);
+    color: #f1c40f;
+}
+
+.admin-row-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-row-actions .admin-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Hace que los botones de acción rápida de cada fila sean circulares y elegantes */
+}
+
+.admin-btn {
+    background: none;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.admin-btn-edit:hover {
     background: #D4AF37;
     color: #000;
     border-color: #D4AF37;
 }
 
-.estado-accion i {
-    color: #555;
-    font-size: 1.1rem;
-    transition: transform 0.3s, color 0.3s;
+.admin-btn-delete:hover {
+    background: #ff4d4d;
+    color: #fff;
+    border-color: #ff4d4d;
 }
 
-.evento-row:hover .estado-accion i {
-    color: #D4AF37;
-    transform: translateX(3px);
-}
-
-/* ======================================================
-   4. PAGINACIÓN
-   ====================================================== */
 .paginacion-container {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .pag-link {
@@ -183,6 +201,7 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
+    transition: all 0.2s;
 }
 
 .pag-link.active, .pag-link:hover {
@@ -190,4 +209,3 @@ body {
     color: #000;
     border-color: #D4AF37;
 }
-

@@ -1,13 +1,8 @@
 <?php
 require_once '../Model/seguridad.php';
+require_once '../Controller/EventController.php';
+
 if (session_status() === PHP_SESSION_NONE) session_start();
-$conexion = new mysqli("localhost", "root", "", "NightFest");
-
-if ($conexion->connect_error) {
-    die("Error de conexión");
-}
-
-// Lógica de usuario logueado
 $is_logged = isset($_SESSION['user_id']);
 $es_admin = ($is_logged && $_SESSION['rol'] === 'admin');
 $inicial = ($is_logged && isset($_SESSION['user_name'])) ? strtoupper(substr($_SESSION['user_name'], 0, 1)) : "";
@@ -15,10 +10,8 @@ $inicial = ($is_logged && isset($_SESSION['user_name'])) ? strtoupper(substr($_S
 // Obtener ID del evento
 $id_evento = isset($_GET['id']) ? (int)$_GET['id'] : 1;
 
-// Consulta de datos del evento
-$sql = "SELECT * FROM eventos WHERE id = $id_evento";
-$resultado = $conexion->query($sql);
-$evento = $resultado->fetch_assoc();
+$ec = new EventController();
+$evento = $ec->getEventById($id_evento);
 
 if (!$evento) {
     die("Evento no encontrado");
@@ -67,6 +60,19 @@ $lng = !empty($evento['longitud']) ? $evento['longitud'] : 2.1734;
             <div class="img-container profile-shadow">
                 <img src="../assets/img/<?php echo $evento['imagen']; ?>" alt="Portada Evento">
             </div>
+            <?php if ($es_admin): ?>
+                <div class="admin-actions-detail" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px; width: 100%;">
+                    <a href="editar_evento.php?id=<?php echo $evento['id']; ?>" class="btn-ubicacion" style="background-color: #D4AF37; color: #000; border: none; padding: 10px 18px; font-weight: bold; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.8rem; white-space: nowrap; flex: 1; justify-content: center; margin: 0;">
+                        <i class="fas fa-edit"></i> EDITAR EVENTO
+                    </a>
+                    <form action="../Controller/EventController.php?action=delete" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este evento?');" style="display: inline-flex; flex: 1; margin: 0;">
+                        <input type="hidden" name="id" value="<?php echo $evento['id']; ?>">
+                        <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 18px; font-weight: bold; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; white-space: nowrap; width: 100%; justify-content: center; margin: 0;">
+                            <i class="fas fa-trash-alt"></i> ELIMINAR EVENTO
+                        </button>
+                    </form>
+                </div>
+            <?php endif; ?>
         </div>
 
         <div class="col-derecha">
@@ -96,8 +102,6 @@ $lng = !empty($evento['longitud']) ? $evento['longitud'] : 2.1734;
 </main>
 
         <?php include 'footer.php'; ?>
-
-
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
