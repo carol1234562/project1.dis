@@ -127,13 +127,11 @@ if (!isset($_SESSION['user_id'])) {
     <div id="delete-account-modal" class="modal-overlay">
         <div class="modal-content <?php echo $es_admin ? 'modal-admin' : 'modal-standard'; ?>">
             <div class="modal-header">
-                <i class="fa-solid fa-triangle-exclamation modal-icon"></i>
                 <h3>Eliminar Cuenta</h3>
             </div>
             <div class="modal-body">
                 <?php if ($es_admin): ?>
                     <p class="warning-text"><strong>¡ADVERTENCIA DE ADMINISTRADOR!</strong></p>
-                    <p>Estás a punto de eliminar de forma permanente una cuenta de <strong>ADMINISTRADOR</strong>. Esta acción es crítica y no se puede deshacer.</p>
                     <p class="instruction-text">Para confirmar la eliminación, introduce el código de seguridad de administrador:</p>
                     
                     <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
@@ -147,9 +145,7 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                     </form>
                 <?php else: ?>
-                    <p>¿Estás seguro de que deseas eliminar tu cuenta de <strong>NightFest</strong>?</p>
-                    <p class="warning-text">Esta acción es irreversible y borrará toda tu información de perfil de forma permanente.</p>
-                    
+                    <p>¿Estás seguro de que deseas eliminar tu cuenta de <strong>NightFest</strong>?</p>                    
                     <form action="../Controller/UserController.php?action=deleteAccount" method="POST" id="delete-account-form">
                         <div class="modal-actions">
                             <button type="button" class="pf-btn modal-btn-cancel" id="close-delete-modal">CANCELAR</button>

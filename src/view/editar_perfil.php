@@ -26,12 +26,6 @@ include_once 'header.php';
 
 <body class="login-page">
     <div class="login-screen">
-
-        <div class="return-container" onclick="window.location.href='perfil.php'">
-            <i class="fas fa-angle-left"></i>
-            <span>Volver</span>
-        </div>
-
         <form action="../Controller/UserController.php?action=actualizarPerfil" method="POST" enctype="multipart/form-data" class="login-form-container">
 
             <h2 style="text-align:center; color:#D4AF37; margin-bottom:25px; font-size:1rem; letter-spacing:2px; text-transform:uppercase;">Editar Perfil</h2>
