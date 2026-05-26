@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="hero-item">
-                        <img src="https://youbarcelona.com/uploads/images/c/Downtown%20barcelona%20club%20gente%202/400x300.webp?v=63811631314" alt="Downtown" loading="lazy">
+                        <img src="https://youbarcelona.com/uploads/images/c/downtown%20barcelona%20club%20gente%202/400x300.webp?v=63811631314" alt="Downtown" loading="lazy">
                         <div class="overlay-info">
                             <h2>DOWN TOWN</h2>
                             <p>27 de nov / 25€</p>
