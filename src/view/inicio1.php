@@ -5,6 +5,15 @@
         session_start();
     }
 
+    require_once __DIR__ . '/../Model/Database.php';
+    try {
+        $db = Database::getConnection();
+        $stmt = $db->query("SELECT id, artista, localidad, ubicacion, estado FROM eventos");
+        $eventos_db = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        $eventos_db = [];
+    }
+
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
     header("Cache-Control: post-check=0, pre-check=0", false);
     header("Pragma: no-cache");
@@ -18,8 +27,8 @@
     $is_logged = isset($_SESSION['user_id']);
     $es_admin = ($is_logged && ($_SESSION['rol'] ?? '') === 'admin');
 
-    // Lógica de destino para secciones privadas
-    $destino_privado = $is_logged ? "reservar.php" : "login.php";
+    // Lógica de destino para secciones privadas (redirigir siempre a iniciar sesión)
+    $destino_privado = "login.php";
 
     // Sincronización del Avatar
     $foto_perfil = $_SESSION['user_photo'] ?? 'default.png';
@@ -150,9 +159,48 @@
         <section class="slider-section">
             <h2 class="section-title">Galería NightFest</h2>
             <div class="slider-galeria">
-                <div class="slick-box"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500" alt="G1"></div>
-                <div class="slick-box"><img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=500" alt="G2"></div>
-                <div class="slick-box"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500" alt="G3"></div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Escenario Principal">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">Escenario Principal</span>
+                    </div>
+                </div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800&q=80" alt="Conciertos en Vivo">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">Conciertos en Vivo</span>
+                    </div>
+                </div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Luces y Sonido">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">Luces y Sonido</span>
+                    </div>
+                </div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="VIP Lounge">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">VIP Lounge</span>
+                    </div>
+                </div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1570872626485-d8ffea697003?auto=format&fit=crop&w=800&q=80" alt="Coctelería Exclusiva">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">Coctelería Exclusiva</span>
+                    </div>
+                </div>
+                <div class="slick-box">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Terraza NightFest">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus gallery-hover-icon"></i>
+                        <span class="gallery-hover-text">Terraza NightFest</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -240,15 +288,23 @@
                 { name: "SUTTON", lat: 41.3965, lng: 2.1523, type: "Discoteca" },
                 { name: "PACHA", lat: 41.3831, lng: 2.1973, type: "Discoteca" },
                 { name: "SAOKO", lat: 41.3920, lng: 2.1550, type: "Discoteca" },
+                { name: "SHOKO CLUB", lat: 41.3828, lng: 2.1968, type: "Discoteca" },
+                { name: "LA TERRAZZA", lat: 41.3694, lng: 2.1481, type: "Discoteca" },
                 { name: "REY DE COPAS", lat: 41.4025, lng: 2.1743, type: "Bar" },
                 { name: "NEON BAR", lat: 41.3801, lng: 2.1702, type: "Bar" },
                 { name: "OPIUM BAR", lat: 41.3845, lng: 2.1960, type: "Bar" },
+                { name: "ECLIPSE PENTHOUSE", lat: 41.3689, lng: 2.1901, type: "Bar" },
+                { name: "CHUPITOS BAR", lat: 41.3815, lng: 2.1625, type: "Bar" },
                 { name: "DURO FESTIVAL", lat: 41.3850, lng: 2.1620, type: "Festival" },
                 { name: "SONAR 2026", lat: 41.3530, lng: 2.1280, type: "Festival" },
                 { name: "BARCELONA ROCK", lat: 41.3650, lng: 2.1500, type: "Festival" },
+                { name: "PRIMAVERA SOUND", lat: 41.4095, lng: 2.2222, type: "Festival" },
+                { name: "CRUILLA FESTIVAL", lat: 41.4080, lng: 2.2195, type: "Festival" },
                 { name: "TAGLIATELLA", lat: 41.3980, lng: 2.1610, type: "Restaurante" },
                 { name: "HARD ROCK CAFE", lat: 41.3870, lng: 2.1700, type: "Restaurante" },
-                { name: "ABaC", lat: 41.4134, lng: 2.1388, type: "Restaurante" }
+                { name: "ABaC", lat: 41.4134, lng: 2.1388, type: "Restaurante" },
+                { name: "DISFRUTAR", lat: 41.3878, lng: 2.1532, type: "Restaurante" },
+                { name: "BODEGA BIARRITZ", lat: 41.3808, lng: 2.1764, type: "Restaurante" }
             ];
 
             locales.forEach(loc => {
@@ -283,7 +339,96 @@
         };
 
         initMap();
+
+        // 6. Lógica del Lightbox Premium de la Galería
+        const lightbox = $('#gallery-lightbox');
+        const lightboxImg = $('#lightbox-img');
+        const lightboxCaption = $('#lightbox-caption');
+        
+        const getUniqueImages = () => {
+            return $('.slider-galeria .slick-slide:not(.slick-cloned) .slick-box img').map(function() {
+                return {
+                    src: $(this).attr('src'),
+                    alt: $(this).attr('alt')
+                };
+            }).get();
+        };
+
+        let uniqueImages = [];
+        let currentIndex = 0;
+
+        const openLightbox = (index) => {
+            currentIndex = index;
+            const imgData = uniqueImages[currentIndex];
+            lightboxImg.css('transform', 'scale(0.9)').attr('src', imgData.src);
+            lightboxCaption.text(imgData.alt || `Galería ${currentIndex + 1}`);
+            lightbox.css('display', 'flex');
+            setTimeout(() => {
+                lightbox.addClass('active');
+                lightboxImg.css('transform', 'scale(1)');
+            }, 50);
+        };
+
+        const closeLightbox = () => {
+            lightbox.removeClass('active');
+            lightboxImg.css('transform', 'scale(0.9)');
+            setTimeout(() => lightbox.css('display', 'none'), 400);
+        };
+
+        const showPrev = () => {
+            currentIndex = (currentIndex - 1 + uniqueImages.length) % uniqueImages.length;
+            const imgData = uniqueImages[currentIndex];
+            lightboxImg.css('transform', 'scale(0.95)');
+            setTimeout(() => {
+                lightboxImg.attr('src', imgData.src);
+                lightboxCaption.text(imgData.alt || `Galería ${currentIndex + 1}`);
+                lightboxImg.css('transform', 'scale(1)');
+            }, 150);
+        };
+
+        const showNext = () => {
+            currentIndex = (currentIndex + 1) % uniqueImages.length;
+            const imgData = uniqueImages[currentIndex];
+            lightboxImg.css('transform', 'scale(0.95)');
+            setTimeout(() => {
+                lightboxImg.attr('src', imgData.src);
+                lightboxCaption.text(imgData.alt || `Galería ${currentIndex + 1}`);
+                lightboxImg.css('transform', 'scale(1)');
+            }, 150);
+        };
+
+        // Click en tarjeta de galería redirige directamente a iniciar sesión
+        $(document).on('click', '.slider-galeria .slick-box', function() {
+            window.location.href = 'login.php';
+        });
+
+        // Controles de navegación y cierre
+        $('.lightbox-close').click(closeLightbox);
+        $('.lightbox-prev').click(function(e) { e.stopPropagation(); showPrev(); });
+        $('.lightbox-next').click(function(e) { e.stopPropagation(); showNext(); });
+        
+        lightbox.click(function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        $(document).keydown(function(e) {
+            if (!lightbox.hasClass('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
     });
     </script>
+
+    <!-- Lightbox de la Galería -->
+    <div id="gallery-lightbox" class="gallery-lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Visualizador de Galería">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
 </body>
 </html>
