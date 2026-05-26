@@ -1,4 +1,5 @@
 <?php
+$header_loaded = true;
 // 1. Activamos el búfer para que PHP guarde el HTML de forma segura en memoria
 ob_start();
 
@@ -29,11 +30,27 @@ $inicial = "U";
 if ($is_logged && isset($_SESSION['user_name'])) {
     $inicial = strtoupper(substr($_SESSION['user_name'], 0, 1));
 }
-?><?php
-$current_page = basename($_SERVER['PHP_SELF']);
 ?>
 <link rel="stylesheet" href="../assets/css/header.css">
 <link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/theme.css">
+
+<script>
+// Aplicar tema guardado inmediatamente antes de renderizar para evitar destellos
+(function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-mode');
+        if (document.body) {
+            document.body.classList.add('light-mode');
+        } else {
+            document.addEventListener("DOMContentLoaded", function() {
+                document.body.classList.add('light-mode');
+            });
+        }
+    }
+})();
+</script>
 
 <header class="cj-h-main">
     <div class="cj-h-logo">
@@ -57,6 +74,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </nav>
 
     <div class="cj-h-controls">
+        <!-- Botón de cambio de tema -->
+        <button id="theme-toggle" class="cj-theme-toggle" title="Cambiar Tema" aria-label="Cambiar Tema">
+            <i class="fas fa-moon"></i>
+        </button>
         <?php if ($is_logged): ?>
             
             <a href="perfil.php" title="Mi Perfil">
@@ -114,5 +135,45 @@ window.addEventListener('pageshow', function (event) {
         // Obliga a la página a descargarse limpiamente desde el servidor de nuevo
         window.location.reload(true);
     }
+});
+
+// 🌗 GESTIÓN DEL TEMA DE COLORES (OSCURO/CLARO)
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleBtn = document.getElementById("theme-toggle");
+    if (!toggleBtn) return;
+    
+    const icon = toggleBtn.querySelector("i");
+    
+    function updateIcon(theme) {
+        if (theme === 'light') {
+            icon.className = "fas fa-sun";
+        } else {
+            icon.className = "fas fa-moon";
+        }
+    }
+    
+    // Inicializar el icono según el tema actual
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    updateIcon(currentTheme);
+    
+    // Escuchar click en el botón del header
+    toggleBtn.addEventListener("click", function() {
+        const isLight = document.body.classList.contains("light-mode");
+        const newTheme = isLight ? 'dark' : 'light';
+        
+        if (newTheme === 'light') {
+            document.documentElement.classList.add("light-mode");
+            document.body.classList.add("light-mode");
+        } else {
+            document.documentElement.classList.remove("light-mode");
+            document.body.classList.remove("light-mode");
+        }
+        
+        localStorage.setItem("theme", newTheme);
+        updateIcon(newTheme);
+        
+        // Despachar evento para componentes dinámicos
+        window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+    });
 });
 </script>

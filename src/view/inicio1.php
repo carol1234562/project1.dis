@@ -216,9 +216,23 @@
         const initMap = () => {
             const map = L.map('map-container').setView([41.3900, 2.1650], 13.5);
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            const getTileUrl = (theme) => {
+                return theme === 'light' 
+                    ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+                    : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+            };
+
+            const initialTheme = localStorage.getItem('theme') || 'dark';
+            let tileLayer = L.tileLayer(getTileUrl(initialTheme), {
                 attribution: '&copy; CARTO'
             }).addTo(map);
+
+            window.addEventListener('themeChanged', function(e) {
+                map.removeLayer(tileLayer);
+                tileLayer = L.tileLayer(getTileUrl(e.detail.theme), {
+                    attribution: '&copy; CARTO'
+                }).addTo(map);
+            });
 
             const goldIcon = L.divIcon({ className: 'gold-marker', iconSize: [12, 12] });
 

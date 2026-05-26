@@ -1,0 +1,400 @@
+/* =========================================================================
+   NIGHTFEST - ESTILOS DE TEMA (LIGHT MODE OVERRIDES)
+   ========================================================================= */
+
+/* Transiciones suaves para los cambios de tema */
+body, header, footer, div, section, a, input, select, textarea, button, p, h1, h2, h3, h4, h5, h6, i, span {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease !important;
+}
+
+/* 1. Redefinición de variables en modo claro */
+body.light-mode {
+    --negro-absoluto: #f4f6f9;
+    --negro-suave: #e9ecef;
+    --negro-tarjeta: #ffffff;
+    --gris-suave: #495057;
+    --white: #212529;
+    
+    /* Variables de perfil.css */
+    --dark-bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-white: #212529;
+    --text-gray: #495057;
+    
+    /* Variables de destacados.css */
+    --blanco: #212529;
+    --gris-texto: #495057;
+}
+
+/* 2. Sobrescritura de estilos base y contenedores */
+body.light-mode {
+    background-color: #f4f6f9 !important;
+    color: #212529 !important;
+}
+
+body.light-mode section {
+    background-color: transparent !important;
+}
+
+body.light-mode .section-bottom {
+    background-color: #f4f6f9 !important;
+}
+
+body.light-mode .section-title,
+body.light-mode .section-title-line {
+    color: #111111 !important;
+}
+
+/* 3. Sobrescritura del Header (cj-h) */
+body.light-mode .cj-h-main {
+    background-color: #ffffff !important;
+    border-bottom: 4px solid #D4AF37 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(225, 177, 44, 0.1) !important;
+}
+
+body.light-mode .cj-h-nav ul li a,
+body.light-mode .cj-h-controls a.cj-h-link-login,
+body.light-mode .cj-h-icon-add, 
+body.light-mode .cj-h-icon-logout {
+    color: #212529 !important;
+}
+
+body.light-mode .cj-h-nav ul li a:hover,
+body.light-mode .cj-h-nav ul li a.active,
+body.light-mode .cj-h-controls a.cj-h-link-login:hover {
+    color: #D4AF37 !important;
+}
+
+/* 4. Sobrescritura del Footer (cj-f) */
+body.light-mode .cj-f-main {
+    background-color: #ffffff !important;
+    border-top: 1px solid #e0e0e0 !important;
+    color: #495057 !important;
+}
+
+body.light-mode .cj-f-links a {
+    color: #495057 !important;
+}
+
+body.light-mode .cj-f-links a:hover {
+    color: #D4AF37 !important;
+}
+
+body.light-mode .cj-f-links .cj-f-sep {
+    color: #e0e0e0 !important;
+}
+
+body.light-mode .cj-f-copy {
+    color: #888888 !important;
+}
+
+/* 5. Sobrescritura de Tarjetas y Grids */
+body.light-mode .club-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .club-card:hover {
+    box-shadow: 0 8px 24px rgba(212,175,55,0.15), 0 0 15px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Forzar que los textos sobre imágenes con degradado sigan siendo claros para legibilidad */
+body.light-mode .overlay-info h1,
+body.light-mode .overlay-info h2,
+body.light-mode .overlay-info p,
+body.light-mode .club-info h4 {
+    color: #ffffff !important;
+}
+
+body.light-mode .slider-galeria .slick-box {
+    background-color: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+/* 6. Discotecas (Cascada de eventos) */
+body.light-mode .evento-row {
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%) !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
+}
+
+body.light-mode .evento-row:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%) !important;
+    box-shadow: 0 8px 25px rgba(212,175,55,0.1) !important;
+}
+
+body.light-mode .evento-row .info-principal h3 {
+    color: #111111 !important;
+}
+
+body.light-mode .evento-row .info-principal p {
+    color: #4a5568 !important;
+}
+
+body.light-mode .pag-link {
+    border-color: #cbd5e1 !important;
+    color: #1e293b !important;
+}
+
+/* 7. Perfil de Usuario (pf-profile) */
+body.light-mode .pf-profile-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .pf-card-header {
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+body.light-mode .pf-btn {
+    color: #1e293b !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-mode .pf-btn:hover {
+    border-color: #D4AF37 !important;
+    background-color: rgba(212, 175, 55, 0.05) !important;
+}
+
+body.light-mode .pf-btn-logout {
+    color: #e74c3c !important;
+    border-color: #fca5a5 !important;
+}
+
+body.light-mode .pf-btn-logout:hover {
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+body.light-mode .pf-btn-danger {
+    border-color: #e74c3c !important;
+    color: #e74c3c !important;
+}
+
+body.light-mode .pf-btn-danger:hover {
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+/* 8. Modales (Glassmorphism) */
+body.light-mode .modal-overlay {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.light-mode .modal-content {
+    background-color: #ffffff !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .modal-standard {
+    border-color: rgba(231, 76, 60, 0.2) !important;
+}
+
+body.light-mode .modal-admin {
+    border-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+body.light-mode .modal-input {
+    background: #ffffff !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #1e293b !important;
+}
+
+body.light-mode .modal-input:focus {
+    border-color: #D4AF37 !important;
+    background: #ffffff !important;
+}
+
+/* 9. Formularios (Eventos y Edición) */
+body.light-mode .form-container-custom {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .input-group-custom label {
+    color: #4a5568 !important;
+}
+
+body.light-mode .input-group-custom input,
+body.light-mode .input-group-custom select,
+body.light-mode .input-group-custom textarea {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+}
+
+/* 10. Páginas de Acceso (Login / Registro) */
+body.light-mode.login-page {
+    background-color: #f4f6f9 !important;
+}
+
+body.light-mode .login-screen {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 45px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .login-form-container {
+    color: #1e293b !important;
+}
+
+body.light-mode .input-group label {
+    color: #4a5568 !important;
+}
+
+body.light-mode .input-group input {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+}
+
+body.light-mode .input-group input::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.light-mode .texto-cuenta {
+    color: #4a5568 !important;
+}
+
+body.light-mode .return-container {
+    color: #1e293b !important;
+}
+
+body.light-mode .return-container:hover {
+    color: #D4AF37 !important;
+}
+
+/* 11. Banner de Cookies */
+body.light-mode #cookie-banner {
+    background-color: #ffffff !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08) !important;
+}
+
+body.light-mode #cookie-banner span {
+    color: #1e293b !important;
+}
+
+/* 12. Panel de Administración (Stats y Opciones) */
+body.light-mode .stat-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .stat-label {
+    color: #4a5568 !important;
+}
+
+body.light-mode .option-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .option-card:hover {
+    background: #ffffff !important;
+    border-color: #D4AF37 !important;
+    box-shadow: 0 8px 24px rgba(212,175,55,0.15) !important;
+}
+
+body.light-mode .option-title {
+    color: #1e293b !important;
+}
+
+body.light-mode .option-desc {
+    color: #4a5568 !important;
+}
+
+/* 13. Sliders Slick (Flechas y Puntos) */
+body.light-mode .slick-prev,
+body.light-mode .slick-next {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.light-mode .slick-prev:hover,
+body.light-mode .slick-next:hover {
+    background: #D4AF37 !important;
+}
+
+body.light-mode .slick-dots li button:before {
+    color: #1e293b !important;
+}
+
+/* 14. Noticias / Destacados */
+body.light-mode .page-intro .date {
+    border-bottom-color: #e2e8f0 !important;
+}
+
+body.light-mode .news-card {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .news-content h3 {
+    color: #1e293b !important;
+}
+
+body.light-mode .read-more {
+    color: #1e293b !important;
+}
+
+body.light-mode .read-more:hover {
+    color: #D4AF37 !important;
+}
+
+/* =========================================================================
+   ESTILOS DE BOTONES DE CAMBIO DE TEMA
+   ========================================================================= */
+.cj-theme-toggle, .floating-theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.25rem;
+    outline: none;
+    transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+.cj-theme-toggle:hover, .floating-theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.15) rotate(15deg);
+}
+
+body.light-mode .cj-theme-toggle,
+body.light-mode .floating-theme-toggle {
+    color: #1e293b;
+}
+
+body.light-mode .cj-theme-toggle:hover,
+body.light-mode .floating-theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Estilo del botón flotante en páginas sin header */
+.floating-theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background-color: #111111;
+    border: 1.5px solid #D4AF37;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    width: 48px;
+    height: 48px;
+}
+
+body.light-mode .floating-theme-toggle {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-color: #cbd5e1;
+}

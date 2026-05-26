@@ -13,7 +13,15 @@ if (isset($_SESSION['user_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/registro_estandar.css">
-
+    <script>
+    // Aplicar tema guardado inmediatamente antes de renderizar para evitar destellos
+    (function() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light-mode');
+        }
+    })();
+    </script>
 </head>
 <body class="login-page">
 

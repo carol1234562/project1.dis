@@ -77,3 +77,47 @@ document.addEventListener("DOMContentLoaded", function() {
     checkCookies();
 });
 </script>
+
+<?php if (!isset($header_loaded)): ?>
+<link rel="stylesheet" href="../assets/css/theme.css">
+<button id="floating-theme-toggle" class="floating-theme-toggle" title="Cambiar Tema" aria-label="Cambiar Tema">
+    <i class="fas fa-moon"></i>
+</button>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const floatingToggle = document.getElementById("floating-theme-toggle");
+    if (!floatingToggle) return;
+    
+    const icon = floatingToggle.querySelector("i");
+    
+    function updateIcon(theme) {
+        if (theme === 'light') {
+            icon.className = "fas fa-sun";
+        } else {
+            icon.className = "fas fa-moon";
+        }
+    }
+    
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    updateIcon(currentTheme);
+    
+    floatingToggle.addEventListener("click", function() {
+        const isLight = document.body.classList.contains("light-mode");
+        const newTheme = isLight ? 'dark' : 'light';
+        
+        if (newTheme === 'light') {
+            document.documentElement.classList.add("light-mode");
+            document.body.classList.add("light-mode");
+        } else {
+            document.documentElement.classList.remove("light-mode");
+            document.body.classList.remove("light-mode");
+        }
+        
+        localStorage.setItem("theme", newTheme);
+        updateIcon(newTheme);
+        
+        window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+    });
+});
+</script>
+<?php endif; ?>
